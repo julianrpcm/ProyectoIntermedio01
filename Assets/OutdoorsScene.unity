@@ -10660,6 +10660,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7752857964252023936, guid: 923c61f52c96ef049be7834ff1543131, type: 3}
   m_PrefabInstance: {fileID: 109962021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &694865597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694865598}
+  m_Layer: 0
+  m_Name: SUPERPAQUITO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694865598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694865597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &697498671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8328803870847813574, guid: 89965264fb5a7644aa936a1418b2604a, type: 3}
@@ -34904,3 +34935,4 @@ SceneRoots:
   - {fileID: 458122677}
   - {fileID: 1864843824}
   - {fileID: 116958120}
+  - {fileID: 694865598}
