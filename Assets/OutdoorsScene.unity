@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 6257288}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000374507, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.005439293, y: 0.0035343058, z: 0.014480019}
+  m_LocalPosition: {x: -0.005439293, y: 0.003534306, z: 0.01448002}
   m_LocalScale: {x: -0.0021126869, y: -0.005372736, z: -0.0014781525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18776,6 +18776,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 217513a553e6681498a4856ec9180723, type: 3}
+--- !u!1 &1245689017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245689018}
+  m_Layer: 0
+  m_Name: ULTRAPAQUITO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245689018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245689017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1247361816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5096076894802887983, guid: 1677c1d22b918fb41a78b2adbe9fec01, type: 3}
@@ -34936,3 +34967,4 @@ SceneRoots:
   - {fileID: 1864843824}
   - {fileID: 116958120}
   - {fileID: 694865598}
+  - {fileID: 1245689018}
