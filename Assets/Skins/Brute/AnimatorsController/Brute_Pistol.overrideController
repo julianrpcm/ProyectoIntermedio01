@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Brute_Pistol
+  m_Controller: {fileID: 9100000, guid: f2532a09d770d8a45aebecb7e60f49d9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 141832c17aec5fb46b05d2ac8242ca94, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 263ef44588b1e534e9f4de9768407ca4, type: 3}

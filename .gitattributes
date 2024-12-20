@@ -1,0 +1,4 @@
+'*' filter=lfs diff=lfs merge=lfs -text
+.gitignore !filter
+.gitattributes !filter
+*.fbx filter=lfs diff=lfs merge=lfs -text

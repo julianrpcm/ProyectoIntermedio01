@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Brute_TwoHandedWeapon
+  m_Controller: {fileID: 9100000, guid: f2532a09d770d8a45aebecb7e60f49d9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 8842878171678463616, guid: 253363231788cf94a9797331d3c3e120, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 5c14e1aba00594241b4bb79d154ead09, type: 3}
+  - m_OriginalClip: {fileID: 4061839508520268033, guid: 253363231788cf94a9797331d3c3e120, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: fff96ef19feca9b43bd02508b561e00b, type: 3}
+  - m_OriginalClip: {fileID: -7332805228743640600, guid: 253363231788cf94a9797331d3c3e120, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 978974c37121adb42b08df7c7afaea2f, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 09a25bf2cec5e2144b3b8a640e777e27, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 25d35ee4c75f1614990f34f60a54659e, type: 3}
