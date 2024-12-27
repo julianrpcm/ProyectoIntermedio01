@@ -8,6 +8,7 @@ using UnityEngine.Events;
 [DefaultExecutionOrder(-10)]
 public class WeaponManager : MonoBehaviour
 {
+    /* Deactivated
     //[Header("configurations")]
     //[SerializeField] Transform weaponsParent;
 
@@ -230,6 +231,7 @@ public class WeaponManager : MonoBehaviour
     //           0.25f
     //           );
     //}
+    */
 
     [Header("configurations")]
     [SerializeField] Transform weaponsParent;
@@ -354,7 +356,6 @@ public class WeaponManager : MonoBehaviour
            )
         {
             ((Weapon_FireWeapon)weapons[currentWeapon]).Shoot();
-
         }
     }
 
@@ -398,29 +399,22 @@ public class WeaponManager : MonoBehaviour
     bool isAiming = false;
     public void PerformAim(bool mustAim)
     {
+        if (!isAiming && mustAim)
+            onStartAiming.Invoke();
+        else if (isAiming && !mustAim)
+            onStopAiming.Invoke();
+
         bool wasAiming = isAiming;
         isAiming = false;
 
         if (currentWeapon != -1)
         {
-
             animator.SetBool("IsAiming", mustAim);
             isAiming = mustAim && weapons[currentWeapon] is Weapon_FireWeapon;
         }
 
         AnimateArmRigsWeight();
         AnimateAimRigsWeight();
-
-        if (!wasAiming && isAiming)
-        {
-            onStartAiming.Invoke();
-        }
-        else if (wasAiming && !isAiming)
-        {
-            onStopAiming.Invoke();
-        }
-
-
     }
 
     void OnMeleeAttackEvent()
@@ -447,8 +441,6 @@ public class WeaponManager : MonoBehaviour
         {
             weapons[currentWeapon].Select(animator);
             animator.SetBool("IsHoldingFireWeapon", weapons[currentWeapon] is Weapon_FireWeapon);
-
-
         }
         else //... o volvemos al animator original
         {
@@ -457,7 +449,6 @@ public class WeaponManager : MonoBehaviour
 
         AnimateArmRigsWeight();
         AnimateAimRigsWeight();
-
     }
 
     private void AnimateArmRigsWeight()
@@ -484,5 +475,4 @@ public class WeaponManager : MonoBehaviour
     {
         return currentWeapon != -1 ? weapons[currentWeapon] : null;
     }
-
 }

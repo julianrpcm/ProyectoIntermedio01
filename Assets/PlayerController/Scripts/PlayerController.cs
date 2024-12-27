@@ -1,9 +1,6 @@
 using System;
-using Unity.Cinemachine;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,19 +36,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference jump;
     [SerializeField] InputActionReference walk;
 
-
-
     Animator animator;
 
     CharacterController characterController;
     Camera mainCamera;
+
+    private Transform originalTarget;
+    private OrientationMode originalOrientationMode;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
-        
+
+        originalTarget = target;
+        originalOrientationMode = orientationMode;
     }
 
     private void OnEnable()
@@ -273,5 +273,25 @@ public class PlayerController : MonoBehaviour
     private float CalcMaxSpeed()
     {
         return isWalking ? maxWalkSpeed : maxRunSpeed;
+    }
+
+    internal void SetExternalOrientationMode(OrientationMode orientationMode)
+    {
+        this.orientationMode = orientationMode;
+    }
+
+    internal void UnSetExternalOrientationMode()
+    {
+        orientationMode = originalOrientationMode;
+    }
+
+    internal void SetExternalTarget(Transform customTarget)
+    {
+        target = customTarget;
+    }
+
+    internal void UnSetExternalTarget()
+    {
+        target = originalTarget;
     }
 }
