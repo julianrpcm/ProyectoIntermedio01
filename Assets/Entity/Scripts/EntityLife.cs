@@ -10,7 +10,7 @@ public class EntityLife : MonoBehaviour
     public UnityEvent <float> onLifeChanged;
     public UnityEvent onDeath;
 
-    float currentLife;
+    [SerializeField] private float currentLife;
 
     #region Debug
     //[SerializeField] float debugLifeToAdd = 0f;
@@ -32,7 +32,6 @@ public class EntityLife : MonoBehaviour
     {
         hurtCollider = GetComponent<HurtCollider>();
         currentLife = startingLife;
-        
     }
 
     private void OnEnable()
@@ -66,4 +65,11 @@ public class EntityLife : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
+    public void AddHealthByMedikit(float lifeAdded)
+    {
+        currentLife += lifeAdded;
+        gameObject.GetComponentInChildren<LifeCanvas>().OnLifeChanged(currentLife);
+        if (currentLife >= startingLife)
+            currentLife = startingLife;
+    }
 }

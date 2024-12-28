@@ -4,27 +4,28 @@ using UnityEngine.Events;
 
 public class HurtCollider : MonoBehaviour
 {
-    //public UnityEvent onHit;
-    //public UnityEvent <float> onHitWithDamage;
+    /*
+    public UnityEvent onHit;
+    public UnityEvent <float> onHitWithDamage;
 
-    //private DamageFeedback damageFeedback; // Referencia al componente de feedback visual.
+    private DamageFeedback damageFeedback; // Referencia al componente de feedback visual.
 
-    //private void Start()
-    //{
-    //    // Intenta obtener automáticamente el componente DamageFeedback.
-    //    damageFeedback = GetComponent<DamageFeedback>();
-    //    if (damageFeedback == null)
-    //    {
-    //        Debug.LogWarning("DamageFeedback no encontrado en el objeto.");
-    //    }
-    //}
+    private void Start()
+    {
+        // Intenta obtener automáticamente el componente DamageFeedback.
+        damageFeedback = GetComponent<DamageFeedback>();
+        if (damageFeedback == null)
+        {
+            Debug.LogWarning("DamageFeedback no encontrado en el objeto.");
+        }
+    }
 
-    //public void NotifyHit(IHitter hitter)
-    //{
-    //    onHit.Invoke();
-    //    onHitWithDamage.Invoke(hitter.GetDamage());
-    //}
-
+    public void NotifyHit(IHitter hitter)
+    {
+        onHit.Invoke();
+        onHitWithDamage.Invoke(hitter.GetDamage());
+    }
+    */
 
     public UnityEvent onHit; // Evento general al ser golpeado.
     public UnityEvent<float> onHitWithDamage; // Evento con la cantidad de daño.

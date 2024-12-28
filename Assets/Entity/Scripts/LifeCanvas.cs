@@ -16,7 +16,7 @@ public class LifeCanvas : MonoBehaviour
         entityLife.onLifeChanged.RemoveListener(OnLifeChanged);
     }
 
-    void OnLifeChanged(float newLifeValue)
+    public void OnLifeChanged(float newLifeValue)
     {
         lifeBar.fillAmount = newLifeValue / entityLife.startingLife;
     }
