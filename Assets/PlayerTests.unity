@@ -4049,7 +4049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713637476997985271, guid: 217513a553e6681498a4856ec9180723, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1133295651173837649, guid: 217513a553e6681498a4856ec9180723, type: 3}
       propertyPath: m_IsActive
@@ -4307,6 +4307,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   currentLife: 0
+  timeToStartRegenerating: 10
+  healthRegenPerSecond: 1
   debugLifeToSubtract: 0
   debugApplyLifeChange: 0
 --- !u!114 &356442582

@@ -1,3 +1,4 @@
+/*
 //using UnityEngine;
 
 //public class Weapon_FireWeapon : WeaponBase
@@ -54,6 +55,7 @@
 //    }
 
 //}
+*/
 
 using System;
 using UnityEngine;
@@ -131,6 +133,8 @@ public class Weapon_FireWeapon : WeaponBase
 
     public void Shoot()
     {
+        //Debug.Log("Disparo desde Shoot()");
+
         if ((fireWeaponMode == FireWeaponMode.ShotByShot))
         {
             PerformShoot();
@@ -143,6 +147,8 @@ public class Weapon_FireWeapon : WeaponBase
 
     public void StartShooting()
     {
+        //Debug.Log("Disparo desde StartShooting()");
+
         if ((fireWeaponMode == FireWeaponMode.ContinuousShot))
         {
             isShooting = true;
@@ -179,6 +185,8 @@ public class Weapon_FireWeapon : WeaponBase
 
     private void PerformShoot()
     {
+        Debug.Log("Disparo desde PerformShoot()");
+
         if ((Time.time - lastShootTime) > (1f / shootsPerSecond))
         {
             lastShootTime = Time.time;

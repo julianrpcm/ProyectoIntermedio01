@@ -13,6 +13,8 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     public override void Shoot()
     {
+        Debug.Log("Disparo desde Shoot()");
+
         Vector3 shootDirection = CalculateForwardWithDispersion();
         Vector3 bulletStartPosition = transform.position;
         Vector3 bulletEndPosition = transform.position + (shootDirection * range);
@@ -23,7 +25,6 @@ public class BarrelByRaycast : BarrelBase, IHitter
             bulletEndPosition = hitInfo.point;
         }
         Instantiate(bulletTrailPrefab)?.GetComponent<BulletTrail>()?.InitBullet(bulletStartPosition, bulletEndPosition);
-        
     }
 
     private Vector3 CalculateForwardWithDispersion()

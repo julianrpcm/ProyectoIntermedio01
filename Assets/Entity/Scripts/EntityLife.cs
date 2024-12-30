@@ -12,6 +12,11 @@ public class EntityLife : MonoBehaviour
 
     [SerializeField] private float currentLife;
 
+    [Header("Health generation")]
+    [SerializeField] private float timeToStartRegenerating = 10f;
+    [SerializeField] private float healthRegenPerSecond = 1f;
+    private float contador;
+
     #region Debug
     //[SerializeField] float debugLifeToAdd = 0f;
     [SerializeField] float debugLifeToSubtract = 0f;
@@ -32,6 +37,8 @@ public class EntityLife : MonoBehaviour
     {
         hurtCollider = GetComponent<HurtCollider>();
         currentLife = startingLife;
+
+        contador = 0f;
     }
 
     private void OnEnable()
@@ -39,9 +46,20 @@ public class EntityLife : MonoBehaviour
         hurtCollider.onHitWithDamage.AddListener(OnHitWithDamage);
     }
 
-  
+    private void Update()
+    {
+        contador += Time.deltaTime;
+        if (contador >= timeToStartRegenerating && currentLife <= startingLife)
+        {
+            currentLife += (healthRegenPerSecond * Time.deltaTime);
+            RefreshLifeCanvas();
+        }
+    }
+
     void OnHitWithDamage(float damage)
     {
+        contador = 0f;
+
         currentLife -= damage;
         onLifeChanged.Invoke(currentLife);
         if(currentLife <= 0f)
@@ -68,6 +86,11 @@ public class EntityLife : MonoBehaviour
     public void AddHealthByMedikit(float lifeAdded)
     {
         currentLife += lifeAdded;
+        RefreshLifeCanvas();
+    }
+
+    private void RefreshLifeCanvas()
+    {
         gameObject.GetComponentInChildren<LifeCanvas>().OnLifeChanged(currentLife);
         if (currentLife >= startingLife)
             currentLife = startingLife;

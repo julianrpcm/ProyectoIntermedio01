@@ -39,7 +39,6 @@ public class WeaponManagerController : MonoBehaviour
         continuousShoot.action.canceled += OnContinuousShoot;
         aim.action.started += OnAim;
         aim.action.canceled += OnAim;
-
     }
 
 
@@ -60,13 +59,11 @@ public class WeaponManagerController : MonoBehaviour
         continuousShoot.action.canceled -= OnContinuousShoot;
         aim.action.started -= OnAim;
         aim.action.canceled -= OnAim;
-
     }
 
     void OnNextPrevWeapon(InputAction.CallbackContext ctx)
     {
         Vector2 readValue = ctx.ReadValue<Vector2>();
-
 
         bool mustSelectNextWeapon = readValue.y > 0;
         weaponManager.PerformChangeToNextOrPreWeapon(mustSelectNextWeapon);

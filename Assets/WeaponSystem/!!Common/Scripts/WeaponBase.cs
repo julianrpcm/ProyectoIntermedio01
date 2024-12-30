@@ -19,7 +19,6 @@ public abstract class WeaponBase : MonoBehaviour
         animator.runtimeAnimatorController = overrideController;
         animator.SetBool("IsFighting", activateFighting);
         animator.SetInteger("ComboLength", comboLength);
-       
     }
 
     internal virtual void Deselect(Animator animator)
@@ -28,6 +27,7 @@ public abstract class WeaponBase : MonoBehaviour
         animator.runtimeAnimatorController = null;
         
     }
+
     internal abstract void PerformAttack();
 
     internal virtual float GetRange()
