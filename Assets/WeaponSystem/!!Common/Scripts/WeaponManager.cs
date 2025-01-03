@@ -251,32 +251,40 @@ public class WeaponManager : MonoBehaviour
     WeaponBase[] weapons;
     int currentWeapon = -1;
 
+    [Header("FireWeapons")]
+    [SerializeField] private BarrelByInstantiation machineGunBBI;
+    [SerializeField] private BarrelByInstantiation shotgunBBI;
+    [SerializeField] private BarrelByInstantiation grenadeLauncherBBI;
+    [SerializeField] private float machineGunShootDelay;
+    [SerializeField] private float shotgunShootDelay;
+    [SerializeField] private float grenadeLauncherShootDelay;
+    [HideInInspector] public float contadorMachineGunShootDelay;
+    [HideInInspector] public float contadorShotgunShootDelay;
+    [HideInInspector] public float contadorGrenadeLauncherShootDelay;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         originalAnimatorController = animator.runtimeAnimatorController;
         weapons = weaponsParent.GetComponentsInChildren<WeaponBase>(true);
         foreach (WeaponBase wb in weapons)
-        {
             wb.Init();
-        }
-
     }
 
     private void Start()
     {
         SelectWeapon(startingWeaponIndex);
+
+        contadorMachineGunShootDelay = 0f;
+        contadorShotgunShootDelay = 0f;
+        contadorGrenadeLauncherShootDelay = 0f;
     }
 
     private void OnEnable()
     {
-
         foreach (AnimationEventForwarder aef in GetComponentsInChildren<AnimationEventForwarder>())
-        {
             aef.onMeleeAttackEvent.AddListener(OnMeleeAttackEvent);
-        }
     }
-
 
     private void Update()
     {
@@ -285,13 +293,27 @@ public class WeaponManager : MonoBehaviour
             mustAttack = false;
             animator.SetTrigger("Attack");
         }
+
+        #region OneByOne
+        contadorMachineGunShootDelay += Time.deltaTime;
+        if (contadorMachineGunShootDelay >= machineGunShootDelay)
+            machineGunBBI.canShoot = true;
+
+        contadorShotgunShootDelay += Time.deltaTime;
+        if (contadorShotgunShootDelay >= shotgunShootDelay)
+            shotgunBBI.canShoot = true;
+
+        contadorGrenadeLauncherShootDelay += Time.deltaTime;
+        if (contadorGrenadeLauncherShootDelay >= grenadeLauncherShootDelay)
+            grenadeLauncherBBI.canShoot = true;
+
+        //baseballBatUses_image.fillAmount = baseballBatUses / 3f;
+        #endregion
     }
     private void OnDisable()
     {
         foreach (AnimationEventForwarder aef in GetComponentsInChildren<AnimationEventForwarder>())
-        {
             aef.onMeleeAttackEvent.RemoveListener(OnMeleeAttackEvent);
-        }
     }
 
     bool mustAttack = false;
@@ -321,23 +343,17 @@ public class WeaponManager : MonoBehaviour
         {
             weaponToSet++;
             if (weaponToSet >= weapons.Length)
-            {
                 weaponToSet = -1;
-            }
         }
         else
         {
             weaponToSet--;
             if (weaponToSet < -1)
-            {
                 weaponToSet = weapons.Length - 1;
-            }
         }
 
         if (weaponToSet != currentWeapon)
-        {
             SelectWeapon(weaponToSet);
-        }
 
         return weaponToSet;
     }
@@ -429,9 +445,7 @@ public class WeaponManager : MonoBehaviour
         {
             weapons[currentWeapon].Deselect(animator);
             if (weapons[currentWeapon] is Weapon_FireWeapon)
-            {
                 animator.SetBool("IsAiming", false);
-            }
         }
 
         //Asignamos
