@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Collections;
 
 
 [DefaultExecutionOrder(-10)]
@@ -262,6 +263,19 @@ public class WeaponManager : MonoBehaviour
     [HideInInspector] public float contadorShotgunShootDelay;
     [HideInInspector] public float contadorGrenadeLauncherShootDelay;
 
+    [Header("Ammo")]
+    public bool subMachineGunHasAmmo = true;
+    public bool shotgunHasAmmo = true;
+    public bool grenadeLauncherHasAmmo = true;
+
+    public float subMachineGunAmmo = 30f;
+    public float shotgunAmmo = 4f;
+    public float grenadeLauncherAmmo = 1f;
+
+    [HideInInspector] public float subMachineGunInitialAmmo;
+    [HideInInspector] public float shotgunInitialAmmo;
+    [HideInInspector] public float grenadeLauncherInitialAmmo;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -278,6 +292,14 @@ public class WeaponManager : MonoBehaviour
         contadorMachineGunShootDelay = 0f;
         contadorShotgunShootDelay = 0f;
         contadorGrenadeLauncherShootDelay = 0f;
+
+        subMachineGunHasAmmo = true;
+        shotgunHasAmmo = true;
+        grenadeLauncherHasAmmo = true;
+
+        subMachineGunInitialAmmo = subMachineGunAmmo;
+        shotgunInitialAmmo = shotgunAmmo;
+        grenadeLauncherInitialAmmo = grenadeLauncherAmmo;
     }
 
     private void OnEnable()
@@ -293,6 +315,13 @@ public class WeaponManager : MonoBehaviour
             mustAttack = false;
             animator.SetTrigger("Attack");
         }
+
+        if (!machineGunBBI.gameObject.activeInHierarchy)
+            machineGunBBI.isReloading = false;
+        if (!shotgunBBI.gameObject.activeInHierarchy)
+            shotgunBBI.isReloading = false;
+        if (!grenadeLauncherBBI.gameObject.activeInHierarchy)
+            grenadeLauncherBBI.isReloading = false;
 
         #region OneByOne
         contadorMachineGunShootDelay += Time.deltaTime;
@@ -391,15 +420,10 @@ public class WeaponManager : MonoBehaviour
             ((Weapon_FireWeapon)weapons[currentWeapon]).CanContinuousShoot()
            )
         {
-
             if (startShooting)
-            {
                 ((Weapon_FireWeapon)weapons[currentWeapon]).StartShooting();
-            }
             else
-            {
                 ((Weapon_FireWeapon)weapons[currentWeapon]).StopShooting();
-            }
         }
     }
 
@@ -488,5 +512,33 @@ public class WeaponManager : MonoBehaviour
     internal WeaponBase GetCurrentWeapon()
     {
         return currentWeapon != -1 ? weapons[currentWeapon] : null;
+    }
+
+    public IEnumerator Reload(float timeForReloading, int weapon, BarrelByInstantiation thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher
+    {
+        Debug.Log("Entro en Reload()");
+
+        thisGameObject.isReloading = true;
+
+        yield return new WaitForSeconds(timeForReloading);
+
+        if (weapon == 1)
+        {
+            subMachineGunAmmo = subMachineGunInitialAmmo;
+            subMachineGunHasAmmo = true;
+        }
+        else if (weapon == 2)
+        {
+            shotgunAmmo = shotgunInitialAmmo;
+            shotgunHasAmmo = true;
+        }
+        else if (weapon == 3)
+        {
+            grenadeLauncherAmmo = grenadeLauncherInitialAmmo;
+            grenadeLauncherHasAmmo = true;
+        }
+
+        thisGameObject.isReloading = false;
+        Debug.Log("Ya puedo disparar");
     }
 }

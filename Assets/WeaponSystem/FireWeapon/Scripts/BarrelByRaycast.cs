@@ -13,7 +13,7 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     public override void Shoot()
     {
-        Debug.Log("Disparo desde Shoot()");
+        //Debug.Log("Disparo desde Shoot()");
 
         Vector3 shootDirection = CalculateForwardWithDispersion();
         Vector3 bulletStartPosition = transform.position;

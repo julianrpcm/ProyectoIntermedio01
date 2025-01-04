@@ -185,7 +185,7 @@ public class Weapon_FireWeapon : WeaponBase
 
     private void PerformShoot()
     {
-        Debug.Log("Disparo desde PerformShoot()");
+        //Debug.Log("Disparo desde PerformShoot()");
 
         if ((Time.time - lastShootTime) > (1f / shootsPerSecond))
         {
