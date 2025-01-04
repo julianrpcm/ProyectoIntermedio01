@@ -1525,10 +1525,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7718087021881350207, guid: 34b2e06dbc839c648996742cbc893beb, type: 3}
-      propertyPath: startingLife
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7718087021881350207, guid: 34b2e06dbc839c648996742cbc893beb, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}

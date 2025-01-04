@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7220a1d06fcebd14c959a241de72d8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  affectedTags: []
+  damage: 1
+  affectedTags:
+  - Enemy
   onHit:
     m_PersistentCalls:
       m_Calls: []

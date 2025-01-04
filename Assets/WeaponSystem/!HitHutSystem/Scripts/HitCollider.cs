@@ -12,8 +12,6 @@ public class HitCollider : MonoBehaviour, IHitter
     [Header("Events")]
     public UnityEvent onHit;
 
-   
-
     private void OnCollisionEnter(Collision collision)
     {
         CheckCollider(collision.collider);
@@ -29,6 +27,7 @@ public class HitCollider : MonoBehaviour, IHitter
         if (affectedTags.Contains(otherCollider.tag) &&  
             otherCollider.TryGetComponent<HurtCollider>(out HurtCollider hurtCollider))
         {
+            Debug.Log("Collides");
             hurtCollider.NotifyHit(this);
             onHit.Invoke();
         }

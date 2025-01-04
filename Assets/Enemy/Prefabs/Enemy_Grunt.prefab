@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2db3a9174352e743bb33a4c329472ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLife: 1
+  startingLife: 10
   onLifeChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -273,6 +273,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  currentLife: 0
+  timeToStartRegenerating: 10
+  healthRegenPerSecond: 1
   debugLifeToSubtract: 0
   debugApplyLifeChange: 0
 --- !u!114 &4543381081262409740

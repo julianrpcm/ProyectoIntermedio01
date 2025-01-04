@@ -4,6 +4,7 @@ using UnityEngine.Animations.Rigging;
 using DG.Tweening;
 using UnityEngine.Events;
 using System.Collections;
+using TMPro;
 
 
 [DefaultExecutionOrder(-10)]
@@ -272,9 +273,21 @@ public class WeaponManager : MonoBehaviour
     public float shotgunAmmo = 4f;
     public float grenadeLauncherAmmo = 1f;
 
-    [HideInInspector] public float subMachineGunInitialAmmo;
-    [HideInInspector] public float shotgunInitialAmmo;
-    [HideInInspector] public float grenadeLauncherInitialAmmo;
+    public float subMachineGunTotalAmmo = 300f;
+    public float shotgunTotalAmmo = 40f;
+    public float grenadeLauncherTotalAmmo = 10f;
+
+    public float subMachineGunCharger = 30f;
+    public float shotgunCharger = 4f;
+    public float grenadeLauncherCharger = 1f;
+
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI subMGAmmoUI;
+    [SerializeField] private TextMeshProUGUI shotGAmmoUI;
+    [SerializeField] private TextMeshProUGUI gLaunchAmmoUI;
+    [SerializeField] private TextMeshProUGUI subMGReloadingText;
+    [SerializeField] private TextMeshProUGUI shotGReloadingText;
+    [SerializeField] private TextMeshProUGUI gLaunchReloadingText;
 
     private void Awake()
     {
@@ -297,9 +310,9 @@ public class WeaponManager : MonoBehaviour
         shotgunHasAmmo = true;
         grenadeLauncherHasAmmo = true;
 
-        subMachineGunInitialAmmo = subMachineGunAmmo;
-        shotgunInitialAmmo = shotgunAmmo;
-        grenadeLauncherInitialAmmo = grenadeLauncherAmmo;
+        subMachineGunCharger = subMachineGunAmmo;
+        shotgunCharger = shotgunAmmo;
+        grenadeLauncherCharger = grenadeLauncherAmmo;
     }
 
     private void OnEnable()
@@ -317,11 +330,24 @@ public class WeaponManager : MonoBehaviour
         }
 
         if (!machineGunBBI.gameObject.activeInHierarchy)
+        {
             machineGunBBI.isReloading = false;
+            subMGReloadingText.gameObject.SetActive(false);
+        }
         if (!shotgunBBI.gameObject.activeInHierarchy)
+        {
             shotgunBBI.isReloading = false;
+            shotGReloadingText.gameObject.SetActive(false);
+        }
         if (!grenadeLauncherBBI.gameObject.activeInHierarchy)
+        {
             grenadeLauncherBBI.isReloading = false;
+            gLaunchReloadingText.gameObject.SetActive(false);
+        }
+
+        subMGAmmoUI.text = "" + subMachineGunAmmo + " / " + subMachineGunTotalAmmo;
+        shotGAmmoUI.text = "" + shotgunAmmo + " / " + shotgunTotalAmmo;
+        gLaunchAmmoUI.text = "" + grenadeLauncherAmmo + " / " + grenadeLauncherTotalAmmo;
 
         #region OneByOne
         contadorMachineGunShootDelay += Time.deltaTime;
@@ -516,29 +542,85 @@ public class WeaponManager : MonoBehaviour
 
     public IEnumerator Reload(float timeForReloading, int weapon, BarrelByInstantiation thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher
     {
-        Debug.Log("Entro en Reload()");
+        //Debug.Log("Entro en Reload()");
 
         thisGameObject.isReloading = true;
 
-        yield return new WaitForSeconds(timeForReloading);
 
-        if (weapon == 1)
+        if (weapon == 1 && subMachineGunTotalAmmo > 0f && subMachineGunAmmo < subMachineGunCharger)
         {
-            subMachineGunAmmo = subMachineGunInitialAmmo;
+            subMGReloadingText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(timeForReloading);
+
+            float subMachineGunTotalAmmoSave = subMachineGunTotalAmmo;
+
+            subMachineGunTotalAmmo -= (subMachineGunCharger - subMachineGunAmmo);
+
+            if (subMachineGunTotalAmmo < 0f)
+                subMachineGunTotalAmmo = 0f;
+
+            if (subMachineGunTotalAmmoSave >= subMachineGunCharger)
+                subMachineGunAmmo = subMachineGunCharger;
+            else if (subMachineGunTotalAmmoSave < subMachineGunCharger && subMachineGunTotalAmmoSave > 0f)
+                if (subMachineGunAmmo + subMachineGunTotalAmmoSave <= 30)
+                    subMachineGunAmmo += subMachineGunTotalAmmoSave;
+                else
+                    subMachineGunAmmo = subMachineGunCharger;
+
             subMachineGunHasAmmo = true;
+
+            subMGReloadingText.gameObject.SetActive(false);
         }
-        else if (weapon == 2)
+        else if (weapon == 2 && shotgunTotalAmmo > 0f && shotgunAmmo < shotgunCharger)
         {
-            shotgunAmmo = shotgunInitialAmmo;
+            shotGReloadingText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(timeForReloading);
+
+            float shotgunTotalAmmoSave = shotgunTotalAmmo;
+
+            shotgunTotalAmmo -= (shotgunCharger - shotgunAmmo);
+
+            if (shotgunTotalAmmo < 0f)
+                shotgunTotalAmmo = 0f;
+
+            if (shotgunTotalAmmoSave >= shotgunCharger)
+                shotgunAmmo = shotgunCharger;
+            else if (shotgunTotalAmmoSave < shotgunCharger && shotgunTotalAmmoSave > 0f)
+                if (shotgunAmmo + shotgunTotalAmmoSave <= 30)
+                    shotgunAmmo += shotgunTotalAmmoSave;
+                else
+                    shotgunAmmo = shotgunCharger;
+
             shotgunHasAmmo = true;
+
+            shotGReloadingText.gameObject.SetActive(false);
         }
-        else if (weapon == 3)
+        else if (weapon == 3 && grenadeLauncherTotalAmmo > 0f && grenadeLauncherAmmo < grenadeLauncherCharger)
         {
-            grenadeLauncherAmmo = grenadeLauncherInitialAmmo;
+            gLaunchReloadingText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(timeForReloading);
+
+            float grenadeLauncherTotalAmmoSave = grenadeLauncherTotalAmmo;
+
+            grenadeLauncherTotalAmmo -= (grenadeLauncherCharger - grenadeLauncherAmmo);
+
+            if (grenadeLauncherTotalAmmo < 0f)
+                grenadeLauncherTotalAmmo = 0f;
+
+            if (grenadeLauncherTotalAmmoSave >= grenadeLauncherCharger)
+                grenadeLauncherAmmo = grenadeLauncherCharger;
+            else if (grenadeLauncherTotalAmmoSave < grenadeLauncherCharger && grenadeLauncherTotalAmmoSave > 0f)
+                if (grenadeLauncherAmmo + grenadeLauncherTotalAmmoSave <= 30)
+                    grenadeLauncherAmmo += grenadeLauncherTotalAmmoSave;
+                else
+                    grenadeLauncherAmmo = grenadeLauncherCharger;
+
             grenadeLauncherHasAmmo = true;
+
+            gLaunchReloadingText.gameObject.SetActive(false);
         }
 
         thisGameObject.isReloading = false;
-        Debug.Log("Ya puedo disparar");
+        //Debug.Log("Ya puedo disparar");
     }
 }

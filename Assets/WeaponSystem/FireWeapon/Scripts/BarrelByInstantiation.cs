@@ -48,14 +48,14 @@ public class BarrelByInstantiation : BarrelBase
 
     public override void Shoot()
     {
-        if (canShoot)
+        if (canShoot && !isReloading)
         {
             canShoot = false;
             if (projectile.gameObject.name == "SubMachineGunBullet" && weaponManager.subMachineGunAmmo != 0 && weaponManager.subMachineGunHasAmmo)
             {
                 weaponManager.contadorMachineGunShootDelay = 0f;
                 weaponManager.subMachineGunAmmo--;
-                Debug.Log("subMachineGunAmmo: " + weaponManager.subMachineGunAmmo);
+                //Debug.Log("subMachineGunAmmo: " + weaponManager.subMachineGunAmmo);
                 Instantiate(projectile, transform.position, transform.rotation);
                 if (weaponManager.subMachineGunAmmo == 0)
                 {
@@ -67,7 +67,7 @@ public class BarrelByInstantiation : BarrelBase
             {
                 weaponManager.contadorGrenadeLauncherShootDelay = 0f;
                 weaponManager.grenadeLauncherAmmo--;
-                Debug.Log("grenadeLauncherAmmo: " + weaponManager.grenadeLauncherAmmo);
+                //Debug.Log("grenadeLauncherAmmo: " + weaponManager.grenadeLauncherAmmo);
                 Instantiate(projectile, transform.position, transform.rotation);
                 if (weaponManager.grenadeLauncherAmmo == 0)
                 {
@@ -79,7 +79,7 @@ public class BarrelByInstantiation : BarrelBase
             {
                 weaponManager.contadorShotgunShootDelay = 0f;
                 weaponManager.shotgunAmmo--;
-                Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
+                //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
 
                 float distanceBetweenBullets = 0f;
                 List<GameObject> instantiatedProjectiles = new List<GameObject>();
