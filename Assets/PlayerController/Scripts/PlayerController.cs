@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
     private Transform originalTarget;
     private OrientationMode originalOrientationMode;
 
+    [Header("UI")]
+    [SerializeField] private GameObject pauseMenuUI;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        pauseMenuUI.SetActive(false);
     }
 
     Vector3 rawStickValue;
@@ -95,6 +99,8 @@ public class PlayerController : MonoBehaviour
         UpdateOrientation();
         UpdateAnimation();
 
+        if (Input.GetKeyDown(KeyCode.P))
+            ActivateDeactivatePauseMenu();
     }
 
     Vector3 velocityOnPlane = Vector3.zero;
@@ -293,5 +299,28 @@ public class PlayerController : MonoBehaviour
     internal void UnSetExternalTarget()
     {
         target = originalTarget;
+    }
+
+    public void ActivateDeactivatePauseMenu()
+    {
+        if (!pauseMenuUI.activeInHierarchy)
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0.0f;
+            //Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else
+        {
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 1.0f;
+            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
