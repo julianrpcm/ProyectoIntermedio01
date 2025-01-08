@@ -48,24 +48,33 @@ public class EntityLife : MonoBehaviour
 
     private void Update()
     {
-        contador += Time.deltaTime;
-        if (contador >= timeToStartRegenerating && currentLife <= startingLife)
+        if (gameObject.tag == "Player")
         {
-            currentLife += (healthRegenPerSecond * Time.deltaTime);
-            RefreshLifeCanvas();
+            contador += Time.deltaTime;
+            if (contador >= timeToStartRegenerating && currentLife <= startingLife)
+            {
+                currentLife += (healthRegenPerSecond * Time.deltaTime);
+                RefreshLifeCanvas();
+            }
         }
     }
 
     void OnHitWithDamage(float damage)
     {
-        contador = 0f;
+        Debug.Log("OnHitWithDamage()");
+
+        if (gameObject.tag == "Player")
+        {
+            contador = 0f;
+        }
 
         currentLife -= damage;
         onLifeChanged.Invoke(currentLife);
-        if(currentLife <= 0f)
+        if (currentLife <= 0f)
         {
+            Debug.Log("onDeath.Invoke()");
             onDeath.Invoke();
-            if (CompareTag("Player"))
+            if (gameObject.tag == "Player")
             {
                 StartCoroutine(WaitAndLoadScene());
             }

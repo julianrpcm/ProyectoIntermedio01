@@ -6,6 +6,8 @@ public class LifeCanvas : MonoBehaviour
     [SerializeField] Image lifeBar;
     [SerializeField] EntityLife entityLife;
 
+    [SerializeField] private bool isPlayer;
+
     private void OnEnable()
     {
         entityLife.onLifeChanged.AddListener(OnLifeChanged);
@@ -18,6 +20,7 @@ public class LifeCanvas : MonoBehaviour
 
     public void OnLifeChanged(float newLifeValue)
     {
-        lifeBar.fillAmount = newLifeValue / entityLife.startingLife;
+        if (isPlayer)
+            lifeBar.fillAmount = newLifeValue / entityLife.startingLife;
     }
 }
