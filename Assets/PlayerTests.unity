@@ -205,6 +205,65 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1020383006}
   m_SourcePrefab: {fileID: 100100000, guid: 4e16f3aa410dadb4c93ee6b9929d6cbd, type: 3}
+--- !u!1 &6196012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6196013}
+  - component: {fileID: 6196014}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6196013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.29883626, y: -0.6408564, z: -0.6408564, w: 0.29883626}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -40, y: -90, z: -90}
+--- !u!114 &6196014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &6257288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1312,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   machineGunBBI: {fileID: 198710660}
-  shotgunBBI: {fileID: 2021445900}
+  shotgunBBR: {fileID: 0}
   grenadeLauncherBBI: {fileID: 2050611273}
   machineGunShootDelay: 0.1
   shotgunShootDelay: 1
@@ -1687,6 +1746,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bfc7de478371be4fb8529b7911cd419, type: 3}
+--- !u!4 &70052199 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+  m_PrefabInstance: {fileID: 100636428770782900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &70195020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2830,6 +2894,65 @@ Transform:
   - {fileID: 1508136152}
   m_Father: {fileID: 606100537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &114250294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114250295}
+  - component: {fileID: 114250296}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114250295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114250294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6830127, y: -0.1830127, z: -0.1830127, w: 0.6830127}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 60, y: -90, z: -90}
+--- !u!114 &114250296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114250294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &116958118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4074,7 +4197,6 @@ MonoBehaviour:
   canShoot: 0
   shotgunCartridgesAngle: 140
   subMachineGunReloadingTime: 2
-  shotgunReloadingTime: 4
   grenadeLauncherReloadingTime: 10
   isReloading: 0
 --- !u!1 &201071628
@@ -5890,6 +6012,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2519382728540299569, guid: 217513a553e6681498a4856ec9180723, type: 3}
   m_PrefabInstance: {fileID: 305795579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &310288674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310288675}
+  - component: {fileID: 310288676}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &310288675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310288674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.45451948, y: -0.54167527, z: -0.54167527, w: 0.45451948}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -10, y: -90, z: -90}
+--- !u!114 &310288676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310288674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1001 &315291378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6810,7 +6991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713637476997985271, guid: 217513a553e6681498a4856ec9180723, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1133295651173837649, guid: 217513a553e6681498a4856ec9180723, type: 3}
       propertyPath: m_IsActive
@@ -7047,7 +7228,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   machineGunBBI: {fileID: 1521579738}
-  shotgunBBI: {fileID: 552268621}
+  shotgunBBR: {fileID: 1590784466}
   grenadeLauncherBBI: {fileID: 790162925}
   machineGunShootDelay: 0.1
   shotgunShootDelay: 1
@@ -7064,9 +7245,9 @@ MonoBehaviour:
   subMachineGunTotalAmmo: 300
   shotgunTotalAmmo: 40
   grenadeLauncherTotalAmmo: 3
-  subMachineGunCharger: 0
-  shotgunCharger: 0
-  grenadeLauncherCharger: 0
+  subMachineGunCharger: 30
+  shotgunCharger: 4
+  grenadeLauncherCharger: 1
   subMGAmmoUI: {fileID: 350004496}
   shotGAmmoUI: {fileID: 1508455872}
   gLaunchAmmoUI: {fileID: 2116795148}
@@ -7405,6 +7586,65 @@ Transform:
   - {fileID: 5157292}
   m_Father: {fileID: 899746879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &364907059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 364907060}
+  - component: {fileID: 364907061}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &364907060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364907059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.54167527, y: -0.45451948, z: -0.45451948, w: 0.54167527}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 10, y: -90, z: -90}
+--- !u!114 &364907061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364907059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &365973379
 GameObject:
   m_ObjectHideFlags: 0
@@ -10685,7 +10925,6 @@ MonoBehaviour:
   canShoot: 0
   shotgunCartridgesAngle: 140
   subMachineGunReloadingTime: 2
-  shotgunReloadingTime: 4
   grenadeLauncherReloadingTime: 10
   isReloading: 0
 --- !u!1 &559483022
@@ -13615,6 +13854,65 @@ Transform:
   - {fileID: 1122218386}
   m_Father: {fileID: 1437887884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &655777347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655777348}
+  - component: {fileID: 655777349}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &655777348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655777347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.35355344, y: -0.6123724, z: -0.6123724, w: 0.35355344}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -30, y: -90, z: -90}
+--- !u!114 &655777349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655777347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1001 &658380012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15477,6 +15775,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7936f39c4c4a2439d4f91bc7d9971f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &793008654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793008655}
+  - component: {fileID: 793008656}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793008655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793008654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6963643, y: -0.12278784, z: -0.12278784, w: 0.6963643}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 70, y: -90, z: -90}
+--- !u!114 &793008656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793008654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &796805617
 GameObject:
   m_ObjectHideFlags: 0
@@ -15993,6 +16350,65 @@ Transform:
   - {fileID: 870772961}
   m_Father: {fileID: 606100537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &822761991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822761992}
+  - component: {fileID: 822761993}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &822761992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822761991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.579228, y: -0.4055798, z: -0.4055798, w: 0.579228}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 20, y: -90, z: -90}
+--- !u!114 &822761993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822761991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!4 &822870648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5234996279601768049, guid: c2953cb3269f4024eb76b79fbab01dc3, type: 3}
@@ -16417,6 +16833,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842644424}
   m_Mesh: {fileID: 8330653076614499142, guid: cbf0e6f42911a3044830605c28993f24, type: 3}
+--- !u!1 &843542404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843542405}
+  - component: {fileID: 843542406}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843542405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843542404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.24184482, y: -0.66446304, z: -0.66446304, w: 0.24184482}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -50, y: -90, z: -90}
+--- !u!114 &843542406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843542404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1001 &847729756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19898,6 +20373,65 @@ Transform:
   - {fileID: 1308225787}
   m_Father: {fileID: 700294946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1007936002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007936003}
+  - component: {fileID: 1007936004}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007936003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007936002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+--- !u!114 &1007936004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007936002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!4 &1010975101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9092771307845055591, guid: b6bafdbd83bc28d4a960f4326571745c, type: 3}
@@ -21435,6 +21969,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 217513a553e6681498a4856ec9180723, type: 3}
+--- !u!1 &1076971860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076971861}
+  - component: {fileID: 1076971862}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1076971861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076971860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.40557972, y: -0.579228, z: -0.579228, w: 0.40557972}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -20, y: -90, z: -90}
+--- !u!114 &1076971862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076971860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1001 &1087949066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22076,6 +22669,65 @@ CapsuleCollider:
   m_Height: 0.50936127
   m_Direction: 1
   m_Center: {x: 0, y: 0.25468063, z: 0}
+--- !u!1 &1137361348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137361349}
+  - component: {fileID: 1137361350}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137361349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137361348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.61237246, y: -0.35355338, z: -0.35355338, w: 0.61237246}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 30, y: -90, z: -90}
+--- !u!114 &1137361350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137361348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &1141751523
 GameObject:
   m_ObjectHideFlags: 0
@@ -27994,7 +28646,6 @@ MonoBehaviour:
   canShoot: 0
   shotgunCartridgesAngle: 140
   subMachineGunReloadingTime: 2
-  shotgunReloadingTime: 4
   grenadeLauncherReloadingTime: 10
   isReloading: 0
 --- !u!1 &1525313174
@@ -28377,6 +29028,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 957488649912129336, guid: 7bffe2096caf95f4da30cd0ec1dcae4c, type: 3}
   m_PrefabInstance: {fileID: 2051261586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1564716427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564716428}
+  - component: {fileID: 1564716429}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1564716428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564716427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6408564, y: -0.29883626, z: -0.29883626, w: 0.6408564}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 40, y: -90, z: -90}
+--- !u!114 &1564716429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564716427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!4 &1574665398
 Transform:
   m_ObjectHideFlags: 0
@@ -28796,6 +29506,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 957488649912129336, guid: 7bffe2096caf95f4da30cd0ec1dcae4c, type: 3}
   m_PrefabInstance: {fileID: 567655131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1590784464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590784465}
+  - component: {fileID: 1590784466}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1590784465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590784464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.12278784, y: -0.6963643, z: -0.6963643, w: 0.12278784}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -70, y: -90, z: -90}
+--- !u!114 &1590784466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590784464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 1
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!1 &1591873224
 GameObject:
   m_ObjectHideFlags: 0
@@ -29756,6 +30525,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2519382728540299569, guid: 217513a553e6681498a4856ec9180723, type: 3}
   m_PrefabInstance: {fileID: 1609166605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1676092226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676092227}
+  - component: {fileID: 1676092228}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676092227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676092226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.1830127, y: -0.6830127, z: -0.6830127, w: 0.1830127}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: -60, y: -90, z: -90}
+--- !u!114 &1676092228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676092226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!4 &1677270953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 957488649912129336, guid: 7bffe2096caf95f4da30cd0ec1dcae4c, type: 3}
@@ -37001,7 +37829,6 @@ MonoBehaviour:
   canShoot: 0
   shotgunCartridgesAngle: 140
   subMachineGunReloadingTime: 2
-  shotgunReloadingTime: 4
   grenadeLauncherReloadingTime: 10
   isReloading: 0
 --- !u!4 &2022754469
@@ -38970,6 +39797,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.25
+--- !u!1 &2136555678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136555679}
+  - component: {fileID: 2136555680}
+  m_Layer: 0
+  m_Name: Shotgun_BarrelByRaycast (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136555679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136555678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.66446304, y: -0.24184482, z: -0.24184482, w: 0.66446304}
+  m_LocalPosition: {x: -1.04, y: -0.01, z: 0.104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70052199}
+  m_LocalEulerAnglesHint: {x: 50, y: -90, z: -90}
+--- !u!114 &2136555680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136555678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09791a5ccd1577488477f6a416c69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugShoot: 0
+  weaponManager: {fileID: 356442580}
+  originalBBR: {fileID: 1590784466}
+  damage: 2
+  range: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 51
+  bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 0
+  verticalDispersion: 0
+  canShoot: 0
+  isShotgun: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
 --- !u!4 &2142471721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2519382728540299569, guid: 217513a553e6681498a4856ec9180723, type: 3}
@@ -39016,6 +39902,10 @@ PrefabInstance:
     - target: {fileID: 2666340450820340702, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
       propertyPath: m_Name
       value: Shotgun_BarrelByInstantiation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666340450820340702, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3878205482335938671, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
       propertyPath: shootsPerSecond
@@ -39211,6 +40101,51 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7210491484364402933, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2025049384}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1590784465}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676092227}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843542405}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6196013}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655777348}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1076971861}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 310288675}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007936003}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 364907060}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 822761992}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1137361349}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564716428}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136555679}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 114250295}
+    - targetCorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 793008655}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2666340450820340702, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}
       insertIndex: -1

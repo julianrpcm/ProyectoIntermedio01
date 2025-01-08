@@ -19,7 +19,6 @@ public class BarrelByInstantiation : BarrelBase
 
     [Header("Ammo")]
     [SerializeField] private float subMachineGunReloadingTime = 2f;
-    [SerializeField] private float shotgunReloadingTime = 4f;
     [SerializeField] private float grenadeLauncherReloadingTime = 10f;
 
     [HideInInspector] public bool isReloading = false;
@@ -39,11 +38,11 @@ public class BarrelByInstantiation : BarrelBase
     private void ReloadCurrentWeapon()
     {
         if (projectile.gameObject.name == "SubMachineGunBullet")
-            StartCoroutine(weaponManager.Reload(subMachineGunReloadingTime, 1, this));
+            StartCoroutine(weaponManager.Reload(subMachineGunReloadingTime, 1, this.gameObject));
         else if (projectile.gameObject.name == "Grenade")
-            StartCoroutine(weaponManager.Reload(grenadeLauncherReloadingTime, 3, this));
-        else if (projectile.gameObject.name == "ShotgunBullet")
-            StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
+            StartCoroutine(weaponManager.Reload(grenadeLauncherReloadingTime, 3, this.gameObject));
+        //else if (projectile.gameObject.name == "ShotgunBullet")
+        //    StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this.gameObject));
     }
 
     public override void Shoot()
@@ -75,6 +74,7 @@ public class BarrelByInstantiation : BarrelBase
                     //StartCoroutine(weaponManager.Reload(grenadeLauncherReloadingTime, 3, this));
                 }
             }
+            /*
             else if (projectile.gameObject.name == "ShotgunBullet" && weaponManager.shotgunAmmo != 0 && weaponManager.shotgunHasAmmo)
             {
                 weaponManager.contadorShotgunShootDelay = 0f;
@@ -113,7 +113,7 @@ public class BarrelByInstantiation : BarrelBase
                     weaponManager.shotgunHasAmmo = false;
                     //StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
                 }
-            }
+            }*/
         }
     }
 

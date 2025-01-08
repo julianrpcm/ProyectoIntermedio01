@@ -255,7 +255,8 @@ public class WeaponManager : MonoBehaviour
 
     [Header("FireWeapons")]
     [SerializeField] private BarrelByInstantiation machineGunBBI;
-    [SerializeField] private BarrelByInstantiation shotgunBBI;
+    //[SerializeField] private BarrelByInstantiation shotgunBBI;
+    [SerializeField] private BarrelByRaycast shotgunBBR;
     [SerializeField] private BarrelByInstantiation grenadeLauncherBBI;
     [SerializeField] private float machineGunShootDelay;
     [SerializeField] private float shotgunShootDelay;
@@ -329,41 +330,45 @@ public class WeaponManager : MonoBehaviour
             animator.SetTrigger("Attack");
         }
 
-        if (!machineGunBBI.gameObject.activeInHierarchy)
+        if (gameObject.tag == "Player")
         {
-            machineGunBBI.isReloading = false;
-            subMGReloadingText.gameObject.SetActive(false);
+            if (!machineGunBBI.gameObject.activeInHierarchy)
+            {
+                machineGunBBI.isReloading = false;
+                subMGReloadingText.gameObject.SetActive(false);
+            }
+            if (!shotgunBBR.gameObject.activeInHierarchy)
+            {
+                shotgunBBR.shotgunIsReloading = false;
+                shotGReloadingText.gameObject.SetActive(false);
+            }
+            if (!grenadeLauncherBBI.gameObject.activeInHierarchy)
+            {
+                grenadeLauncherBBI.isReloading = false;
+                gLaunchReloadingText.gameObject.SetActive(false);
+            }
+
+            subMGAmmoUI.text = "" + subMachineGunAmmo + " / " + subMachineGunTotalAmmo;
+            shotGAmmoUI.text = "" + shotgunAmmo + " / " + shotgunTotalAmmo;
+            gLaunchAmmoUI.text = "" + grenadeLauncherAmmo + " / " + grenadeLauncherTotalAmmo;
+
+            #region OneByOne
+            contadorMachineGunShootDelay += Time.deltaTime;
+            if (contadorMachineGunShootDelay >= machineGunShootDelay)
+                machineGunBBI.canShoot = true;
+
+            contadorShotgunShootDelay += Time.deltaTime;
+            if (contadorShotgunShootDelay >= shotgunShootDelay)
+                shotgunBBR.canShoot = true;
+
+            contadorGrenadeLauncherShootDelay += Time.deltaTime;
+            if (contadorGrenadeLauncherShootDelay >= grenadeLauncherShootDelay)
+                grenadeLauncherBBI.canShoot = true;
+
+            //baseballBatUses_image.fillAmount = baseballBatUses / 3f;
+            #endregion
         }
-        if (!shotgunBBI.gameObject.activeInHierarchy)
-        {
-            shotgunBBI.isReloading = false;
-            shotGReloadingText.gameObject.SetActive(false);
-        }
-        if (!grenadeLauncherBBI.gameObject.activeInHierarchy)
-        {
-            grenadeLauncherBBI.isReloading = false;
-            gLaunchReloadingText.gameObject.SetActive(false);
-        }
 
-        subMGAmmoUI.text = "" + subMachineGunAmmo + " / " + subMachineGunTotalAmmo;
-        shotGAmmoUI.text = "" + shotgunAmmo + " / " + shotgunTotalAmmo;
-        gLaunchAmmoUI.text = "" + grenadeLauncherAmmo + " / " + grenadeLauncherTotalAmmo;
-
-        #region OneByOne
-        contadorMachineGunShootDelay += Time.deltaTime;
-        if (contadorMachineGunShootDelay >= machineGunShootDelay)
-            machineGunBBI.canShoot = true;
-
-        contadorShotgunShootDelay += Time.deltaTime;
-        if (contadorShotgunShootDelay >= shotgunShootDelay)
-            shotgunBBI.canShoot = true;
-
-        contadorGrenadeLauncherShootDelay += Time.deltaTime;
-        if (contadorGrenadeLauncherShootDelay >= grenadeLauncherShootDelay)
-            grenadeLauncherBBI.canShoot = true;
-
-        //baseballBatUses_image.fillAmount = baseballBatUses / 3f;
-        #endregion
     }
     private void OnDisable()
     {
@@ -540,12 +545,14 @@ public class WeaponManager : MonoBehaviour
         return currentWeapon != -1 ? weapons[currentWeapon] : null;
     }
 
-    public IEnumerator Reload(float timeForReloading, int weapon, BarrelByInstantiation thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher
+    public IEnumerator Reload(float timeForReloading, int weapon, GameObject thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher
     {
         //Debug.Log("Entro en Reload()");
 
-        thisGameObject.isReloading = true;
-
+        if (weapon == 1 || weapon == 3)
+            thisGameObject.GetComponent<BarrelByInstantiation>().isReloading = true;
+        else if (weapon == 2)
+            thisGameObject.GetComponent<BarrelByRaycast>().shotgunIsReloading = true;
 
         if (weapon == 1 && subMachineGunTotalAmmo > 0f && subMachineGunAmmo < subMachineGunCharger)
         {
@@ -620,7 +627,10 @@ public class WeaponManager : MonoBehaviour
             gLaunchReloadingText.gameObject.SetActive(false);
         }
 
-        thisGameObject.isReloading = false;
+        if (weapon == 1 || weapon == 3)
+            thisGameObject.GetComponent<BarrelByInstantiation>().isReloading = false;
+        else if (weapon == 2)
+            thisGameObject.GetComponent<BarrelByRaycast>().shotgunIsReloading = false;
         //Debug.Log("Ya puedo disparar");
     }
 }
