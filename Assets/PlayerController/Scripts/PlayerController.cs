@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject controlsMenuOption;
 
     private void Awake()
     {
@@ -64,7 +65,6 @@ public class PlayerController : MonoBehaviour
         jump.action.Enable();
         walk.action.Enable();
         
-
         move.action.started += OnMove;
         move.action.performed += OnMove;
         move.action.canceled += OnMove;
@@ -74,17 +74,14 @@ public class PlayerController : MonoBehaviour
         walk.action.started += OnWalk;
         walk.action.canceled += OnWalk;
 
-       
-
-        foreach (AnimationEventForwarder aef in GetComponentsInChildren<AnimationEventForwarder>())
-        {
+       foreach (AnimationEventForwarder aef in GetComponentsInChildren<AnimationEventForwarder>())
             aef.onAnimationAttackEvent.AddListener(OnAnimatorEvent);
-        }
     }
 
     void Start()
     {
         pauseMenuUI.SetActive(false);
+        controlsMenuOption.SetActive(false);
     }
 
     Vector3 rawStickValue;
@@ -130,10 +127,6 @@ public class PlayerController : MonoBehaviour
      
         return velocityOnPlane * Time.deltaTime;
     }
-
-   
-
-
 
     const float gravity = -9.8f;
     float verticalVelocity = 0f;
@@ -312,11 +305,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (controlsMenuOption.activeInHierarchy)
+                controlsMenuOption.SetActive(false);
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1.0f;
             //Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+
+    public void ActivateDeactivateConstrolsMenuOption(bool activate)
+    {
+        controlsMenuOption.SetActive(activate);
     }
 
     public void ReturnToMenu()
