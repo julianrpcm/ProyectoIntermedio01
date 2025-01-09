@@ -61,7 +61,7 @@ public class EntityLife : MonoBehaviour
 
     void OnHitWithDamage(float damage)
     {
-        Debug.Log("OnHitWithDamage()");
+        //Debug.Log("OnHitWithDamage()");
 
         if (gameObject.tag == "Player")
         {
@@ -72,7 +72,7 @@ public class EntityLife : MonoBehaviour
         onLifeChanged.Invoke(currentLife);
         if (currentLife <= 0f)
         {
-            Debug.Log("onDeath.Invoke()");
+            //Debug.Log("onDeath.Invoke()");
             onDeath.Invoke();
             if (gameObject.tag == "Player")
             {

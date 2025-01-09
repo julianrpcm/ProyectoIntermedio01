@@ -10,7 +10,7 @@ public class PlayerProfileManager : MonoBehaviour
 
     private WeaponManager weaponManager;
     private bool isAiming;
-    //IPerceptible currentTarget;
+    IPerceptible currentTarget;
 
     PlayerProfile currentProfile;
 
@@ -24,8 +24,8 @@ public class PlayerProfileManager : MonoBehaviour
         weaponManager.onStartAiming.AddListener(OnStartAiming);
         weaponManager.onStopAiming.AddListener(OnStopAiming);
 
-        //targetLock.onTargetAcquired.AddListener(OnTargetAcquired);
-        //targetLock.onTargetLost.AddListener(OnTargetLost);
+        targetLock.onTargetAcquired.AddListener(OnTargetAcquired);
+        targetLock.onTargetLost.AddListener(OnTargetLost);
     }
 
     private void Update()
@@ -34,14 +34,13 @@ public class PlayerProfileManager : MonoBehaviour
 
         if (isAiming)
         {
-            //if (currentTarget != null)
-            //    desiredProfile = profileAimingWithTarget;
-            //else
-            //    desiredProfile = profileAiming;
-            desiredProfile = profileAiming; // Esta linea se tiene que quitar cuando se active lo de arriba
+            if (currentTarget != null)
+                desiredProfile = profileAimingWithTarget;
+            else
+                desiredProfile = profileAiming;
+            //desiredProfile = profileAiming; // Esta linea se tiene que quitar cuando se active lo de arriba
         }
         // If Has Target entonses
-
         if (currentProfile != desiredProfile)
         {
             currentProfile?.Deactivate();
@@ -55,8 +54,8 @@ public class PlayerProfileManager : MonoBehaviour
         weaponManager.onStartAiming.RemoveListener(OnStartAiming);
         weaponManager.onStopAiming.RemoveListener(OnStopAiming);
 
-        //targetLock.onTargetAcquired.RemoveListener(OnTargetAcquired);
-        //targetLock.onTargetLost.RemoveListener(OnTargetLost);
+        targetLock.onTargetAcquired.RemoveListener(OnTargetAcquired);
+        targetLock.onTargetLost.RemoveListener(OnTargetLost);
     }
 
     private void OnStartAiming()
@@ -69,15 +68,15 @@ public class PlayerProfileManager : MonoBehaviour
         isAiming = false;
     }
 
-    //private void OnTargetAcquired(IPerceptible targetAcquired)
-    //{
-    //    currentTarget = TargetAcquired;
-    //    profileAimingWithTarget.customTarget = targetAcquired.GetTransform();
-    //}
+    private void OnTargetAcquired(IPerceptible targetAcquired)
+    {
+        currentTarget = targetAcquired;
+        profileAimingWithTarget.customTarget = targetAcquired.GetTransform();
+    }
 
-    //private void OnTargetLost(IPerceptible targetLost)
-    //{
-    //    currentTarget = null;
-    //    profileAimingWithTarget.customTarget = null;
-    //}
+    private void OnTargetLost(IPerceptible targetLost)
+    {
+        currentTarget = null;
+        profileAimingWithTarget.customTarget = null;
+    }
 }

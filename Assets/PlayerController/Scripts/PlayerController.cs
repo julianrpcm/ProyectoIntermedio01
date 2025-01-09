@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
 {
     [Header("Movements")]
 
@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     [Header("Combat")]
     [SerializeField] Transform hitCollidersParent;
 
+    [Header("Visible")]
+    [SerializeField] IPerceptible.Faction faction = IPerceptible.Faction.Allies;
 
     [Header("Inputs Movements")]
     [SerializeField] InputActionReference move;
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
     Camera mainCamera;
 
     private Transform originalTarget;
+    private Transform customTarget;
+
     private OrientationMode originalOrientationMode;
 
     [Header("UI")]
@@ -272,6 +276,49 @@ public class PlayerController : MonoBehaviour
     private float CalcMaxSpeed()
     {
         return isWalking ? maxWalkSpeed : maxRunSpeed;
+    }
+
+    IPerceptible.Faction IPerceptible.GetFaction()
+    {
+        return faction;
+    }
+
+    Transform IPerceptible.GetTransform()
+    {
+        return transform;
+    }
+
+    bool IMovingAnimatable.GetIsGorunded()
+    {
+        return characterController.isGrounded;
+    }
+
+    float IMovingAnimatable.GetJumpProgress()
+    {
+        float jumpProgress = Mathf.InverseLerp(jumpSpeed, -jumpSpeed, verticalVelocity);
+
+        return characterController.isGrounded ? 1f : jumpProgress;
+    }
+
+    float IMovingAnimatable.GetNormalizedLocalForwardlVelocity()
+    {
+        Vector3 localVelocity = transform.InverseTransformDirection(velocityOnPlane);
+        float maxSpeed = maxRunSpeed;
+
+        return localVelocity.z / maxSpeed;
+    }
+
+    float IMovingAnimatable.GetNormalizedLocalHorizontalVelocity()
+    {
+        Vector3 localVelocity = transform.InverseTransformDirection(velocityOnPlane);
+        float maxSpeed = maxRunSpeed;
+
+        return localVelocity.x / maxSpeed;
+    }
+
+    Vector3 IPerceptible.GetOffSetForLineOfSightCheck()
+    {
+        return Vector3.up * 1.5f;
     }
 
     internal void SetExternalOrientationMode(OrientationMode orientationMode)

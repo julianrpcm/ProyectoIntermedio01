@@ -19,6 +19,7 @@ public class BarrelByRaycast : BarrelBase, IHitter
     [Header("Variables")]
     [HideInInspector] public bool canShoot;
     [SerializeField] private bool isShotgun;
+    [SerializeField] private bool isPlayer = false;
 
     [Header("Ammo")]
     [SerializeField] private float shotgunReloadingTime = 4f;
@@ -43,37 +44,48 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     public override void Shoot()
     {
-        if (originalBBR.canShoot && !originalBBR.shotgunIsReloading && weaponManager.shotgunAmmo != 0 && weaponManager.shotgunHasAmmo)
+        if (isPlayer)
         {
-            //Debug.Log("Disparo desde Shoot()");
-
-            Vector3 shootDirection = CalculateForwardWithDispersion();
-            Vector3 bulletStartPosition = transform.position;
-            Vector3 bulletEndPosition = transform.position + (shootDirection * range);
-
-            if (Physics.Raycast(transform.position, shootDirection, out RaycastHit hitInfo, range, layerMask))
+            if (originalBBR.canShoot && !originalBBR.shotgunIsReloading && weaponManager.shotgunAmmo != 0 && weaponManager.shotgunHasAmmo)
             {
-                hitInfo.collider.GetComponent<HurtCollider>()?.NotifyHit(this);
-                bulletEndPosition = hitInfo.point;
-            }
-            Instantiate(bulletTrailPrefab)?.GetComponent<BulletTrail>()?.InitBullet(bulletStartPosition, bulletEndPosition);
+                //Debug.Log("Disparo desde Shoot()");
+                MakeTheShot();
 
-            if (isShotgun)
-            {
-                //Debug.Log("Entro al if de la escopeta");
-                weaponManager.contadorShotgunShootDelay = 0f;
-                weaponManager.shotgunAmmo--;
-                //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
-
-                if (weaponManager.shotgunAmmo == 0)
+                if (isShotgun)
                 {
-                    //Debug.Log("Estoy sin municion en la escopeta");
+                    //Debug.Log("Entro al if de la escopeta");
+                    weaponManager.contadorShotgunShootDelay = 0f;
+                    weaponManager.shotgunAmmo--;
+                    //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
 
-                    weaponManager.shotgunHasAmmo = false;
-                    //StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
+                    if (weaponManager.shotgunAmmo == 0)
+                    {
+                        //Debug.Log("Estoy sin municion en la escopeta");
+
+                        weaponManager.shotgunHasAmmo = false;
+                        //StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
+                    }
                 }
             }
         }
+        else
+        {
+            MakeTheShot();
+        }
+    }
+
+    private void MakeTheShot()
+    {
+        Vector3 shootDirection = CalculateForwardWithDispersion();
+        Vector3 bulletStartPosition = transform.position;
+        Vector3 bulletEndPosition = transform.position + (shootDirection * range);
+
+        if (Physics.Raycast(transform.position, shootDirection, out RaycastHit hitInfo, range, layerMask))
+        {
+            hitInfo.collider.GetComponent<HurtCollider>()?.NotifyHit(this);
+            bulletEndPosition = hitInfo.point;
+        }
+        Instantiate(bulletTrailPrefab)?.GetComponent<BulletTrail>()?.InitBullet(bulletStartPosition, bulletEndPosition);
     }
 
     private Vector3 CalculateForwardWithDispersion()

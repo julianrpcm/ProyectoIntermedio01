@@ -3,7 +3,7 @@ using Unity.Cinemachine;
 
 public class PlayerProfile : MonoBehaviour
 {
-    public string name;
+    public string nombre;
     public CinemachineCamera cinemachineCamera;
     public PlayerController.OrientationMode orientationMode;
     public enum TargetForOrientationMode
@@ -15,26 +15,26 @@ public class PlayerProfile : MonoBehaviour
     public Transform customTarget;
     public GameObject[] objectsToActivate;
 
-    [Header("Debug")]
-    [SerializeField] private bool debugActivate;
-    [SerializeField] private bool debugDeactivate;
+    //[Header("Debug")]
+    //[SerializeField] private bool debugActivate;
+    //[SerializeField] private bool debugDeactivate;
 
     private PlayerController playerController;
 
-    private void OnValidate()
-    {
-        if (debugActivate)
-        {
-            debugActivate = false;
-            Activate();
-        }
+    //private void OnValidate()
+    //{
+    //    if (debugActivate)
+    //    {
+    //        debugActivate = false;
+    //        Activate();
+    //    }
 
-        if (debugDeactivate)
-        {
-            debugDeactivate = false;
-            Deactivate();
-        }
-    }
+    //    if (debugDeactivate)
+    //    {
+    //        debugDeactivate = false;
+    //        Deactivate();
+    //    }
+    //}
 
     private void Awake()
     {
@@ -57,8 +57,10 @@ public class PlayerProfile : MonoBehaviour
         switch (targetForOrientationMode)
         {
             case TargetForOrientationMode.None:
+                Debug.Log("TargetForOrientationMode.None");
                 break;
             case TargetForOrientationMode.UseCustomTarget:
+                Debug.Log("case TargetForOrientationMode.UseCustomTarget");
                 playerController.SetExternalTarget(customTarget);
                 break;
         }
@@ -68,7 +70,7 @@ public class PlayerProfile : MonoBehaviour
     {
         cinemachineCamera.gameObject.SetActive(false);
         playerController.UnSetExternalOrientationMode();
-        if(targetForOrientationMode == TargetForOrientationMode.UseCustomTarget)
+        if (targetForOrientationMode == TargetForOrientationMode.UseCustomTarget)
             playerController.UnSetExternalTarget();
         enabled = false;
 

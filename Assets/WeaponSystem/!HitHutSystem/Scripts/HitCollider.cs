@@ -27,7 +27,7 @@ public class HitCollider : MonoBehaviour, IHitter
         if (affectedTags.Contains(otherCollider.tag) &&  
             otherCollider.TryGetComponent<HurtCollider>(out HurtCollider hurtCollider))
         {
-            Debug.Log("Collides");
+            //Debug.Log("Collides");
             hurtCollider.NotifyHit(this);
             onHit.Invoke();
         }

@@ -3,18 +3,19 @@ using UnityEngine.Events;
 
 public class TargetLock : MonoBehaviour
 {
-    //public UnityEvent <IPerceptible> onTargetAcquired;
-    //public UnityEvent <IPerceptible> onTargetLost;
-
     [SerializeField] private WeaponManager weaponManager;
-    //private EntitySight sight;
+
+    public UnityEvent<IPerceptible> onTargetAcquired;
+    public UnityEvent<IPerceptible> onTargetLost;
+
+    private EntitySight sight;
     private bool isAiming;
 
-    //IPerceptible currentTarget;
+    IPerceptible currentTarget;
 
     private void Awake()
     {
-        //sight = GetComponent<EntitySight>();
+        sight = GetComponent<EntitySight>();
     }
 
     private void OnEnable()
@@ -25,18 +26,25 @@ public class TargetLock : MonoBehaviour
 
     private void Update()
     {
-        //IPerceptible desiredPerceptible = isAiming? sight.GetClosestVisible() : null;
+        Debug.Log("isAiming = " + isAiming);
+        IPerceptible desiredPerceptible = isAiming ? sight.GetClosestVisible() : null;
 
-        //if (desiredPerceptible != currentTarget)
-        //{
-        //    if (currentTarget != null)
-        //        onTargetLost.Invoke(currentTarget);
+        Debug.Log("desiredPerceptible = " + desiredPerceptible);
 
-        //    currentTarget = desiredPerceptible;
 
-        //    if (currentTarget != null)
-        //        onTargetAcquired.Invoke(currentTarget);
-        //}
+        if (desiredPerceptible != currentTarget)
+        {
+            Debug.Log("desiredPerceptible != currentTarget" );
+
+            if (currentTarget != null)
+                onTargetLost.Invoke(currentTarget);
+
+            currentTarget = desiredPerceptible;
+
+            if (currentTarget != null)
+                onTargetAcquired.Invoke(currentTarget);
+            Debug.Log("currentTarget = " + currentTarget);
+        }
     }
 
     private void OnDisable()
