@@ -26,15 +26,14 @@ public class TargetLock : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("isAiming = " + isAiming);
+        //Debug.Log("isAiming = " + isAiming);
         IPerceptible desiredPerceptible = isAiming ? sight.GetClosestVisible() : null;
 
-        Debug.Log("desiredPerceptible = " + desiredPerceptible);
-
+        //Debug.Log("desiredPerceptible = " + desiredPerceptible);
 
         if (desiredPerceptible != currentTarget)
         {
-            Debug.Log("desiredPerceptible != currentTarget" );
+            //Debug.Log("desiredPerceptible != currentTarget" );
 
             if (currentTarget != null)
                 onTargetLost.Invoke(currentTarget);
@@ -43,7 +42,7 @@ public class TargetLock : MonoBehaviour
 
             if (currentTarget != null)
                 onTargetAcquired.Invoke(currentTarget);
-            Debug.Log("currentTarget = " + currentTarget);
+            //Debug.Log("currentTarget = " + currentTarget);
         }
     }
 

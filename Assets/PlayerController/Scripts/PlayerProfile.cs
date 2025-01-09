@@ -57,10 +57,8 @@ public class PlayerProfile : MonoBehaviour
         switch (targetForOrientationMode)
         {
             case TargetForOrientationMode.None:
-                Debug.Log("TargetForOrientationMode.None");
                 break;
             case TargetForOrientationMode.UseCustomTarget:
-                Debug.Log("case TargetForOrientationMode.UseCustomTarget");
                 playerController.SetExternalTarget(customTarget);
                 break;
         }

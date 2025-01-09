@@ -70,8 +70,8 @@ public class EntitySight : MonoBehaviour
             }
         }
 
-        if (isPlayer)
-            Debug.Log("closestVisible: " + closestVisible);
+        //if (isPlayer)
+        //    Debug.Log("closestVisible: " + closestVisible);
 
         return closestVisible;
     }
