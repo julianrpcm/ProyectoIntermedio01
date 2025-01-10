@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df15edfd24d83f4a8895b683107231e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 13
   comboLength: 3
   overrideController: {fileID: 22100000, guid: 6050d34b160c69c418e6fcb07a61923d, type: 2}
   activateFighting: 0
@@ -229,12 +229,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 1
   range: 50
   layerMask:
     serializedVersion: 2
     m_Bits: 51
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
+  horizontalDispersion: 5
+  verticalDispersion: 3
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1001 &2752200555830415253
 PrefabInstance:
   m_ObjectHideFlags: 0

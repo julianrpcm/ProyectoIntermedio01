@@ -235,6 +235,9 @@ public class WeaponManager : MonoBehaviour
         {
             ((Weapon_FireWeapon)weapons[currentWeapon]).Shoot();
         }
+
+        //if (currentWeapon != -1 && weapons[currentWeapon] is Weapon_FireWeapon)
+        //    ((Weapon_FireWeapon)weapons[currentWeapon]).Shoot();
     }
 
     void OnContinuousShoot(InputAction.CallbackContext ctx)

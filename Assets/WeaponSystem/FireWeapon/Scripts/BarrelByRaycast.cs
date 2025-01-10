@@ -109,6 +109,8 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     private void MakeTheShot()
     {
+        //Debug.Log("MakeTheShot()");
+
         Vector3 shootDirection = CalculateForwardWithDispersion();
         Vector3 bulletStartPosition = transform.position;
         Vector3 bulletEndPosition = transform.position + (shootDirection * range);

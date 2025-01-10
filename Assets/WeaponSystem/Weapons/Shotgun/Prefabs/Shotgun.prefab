@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -53,6 +55,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &73758916179352591
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -106,6 +119,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &827219092425628744
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -159,6 +183,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &1273876042989248851
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -212,6 +247,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &1462877052994947955
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -297,6 +343,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &2295304067648313916
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -350,6 +407,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &2551688248436590938
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df15edfd24d83f4a8895b683107231e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 8
   comboLength: 3
   overrideController: {fileID: 22100000, guid: 6050d34b160c69c418e6fcb07a61923d, type: 2}
   activateFighting: 0
@@ -523,6 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -531,6 +599,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &3233863091939874212
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -584,6 +663,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &3426223295149266816
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -637,6 +727,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &5356893288896991202
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -741,6 +842,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &6087953177138784925
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -794,6 +906,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &6325537604532347970
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -847,6 +970,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &7280966979999653026
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +1024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -900,6 +1034,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &7323880359006696207
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +1088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -953,6 +1098,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &7460583264350054285
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1006,6 +1162,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &7522816607115850643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1059,6 +1226,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &8673370305357301491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1112,6 +1290,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &8887993911130761910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1165,6 +1354,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &9063131093425836771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1218,6 +1418,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1 &9107191706069322305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShoot: 0
+  weaponManager: {fileID: 0}
+  originalBBR: {fileID: 0}
   damage: 0.1
   range: 7
   layerMask:
@@ -1271,6 +1482,15 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 8596358706389335832, guid: 18907e5a66f15fa40a327001aa1462e9, type: 3}
   horizontalDispersion: 30
   verticalDispersion: 20
+  canShoot: 0
+  isOriginalShotgun: 0
+  isShotgun: 0
+  isDesertEagle: 0
+  isPlayer: 0
+  shotgunReloadingTime: 4
+  shotgunIsReloading: 0
+  desertEagleReloadingTime: 1.5
+  desertEagleIsReloading: 0
 --- !u!1001 &5118155990048960251
 PrefabInstance:
   m_ObjectHideFlags: 0

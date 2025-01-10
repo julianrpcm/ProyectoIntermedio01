@@ -99,6 +99,7 @@ MonoBehaviour:
   damage: 1
   affectedTags:
   - Enemy
+  - Player
   onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 10
-  lifeTime: 10
+  lifeTime: 3
   explosionPrefab: {fileID: 4948399438569120734, guid: b12e7ed618363c749bcc71dfa5c89987, type: 3}
   timeToDieAfterCollision: 10
 --- !u!1 &3575984978409017978
