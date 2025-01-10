@@ -7597,10 +7597,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 2551649990089845038}
+        m_TargetAssemblyTypeName: EntityLife, Assembly-CSharp
+        m_MethodName: DropAmmoOnDeath
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7612,6 +7612,9 @@ MonoBehaviour:
   currentLife: 0
   timeToStartRegenerating: 10
   healthRegenPerSecond: 1
+  subMachineGunAmmoPrefab: {fileID: 1720463386570685010, guid: 1d9726e0a22120d49a9888cab1a2e57b, type: 3}
+  desertEagleAmmoPrefab: {fileID: 7566673542118653770, guid: c602448ab13d1f34fb65d0c82f3515f6, type: 3}
+  shotgunAmmoPrefab: {fileID: 5219253089999110338, guid: dc01e361c075a184f8eb1199e8781751, type: 3}
   debugLifeToSubtract: 0
   debugApplyLifeChange: 0
 --- !u!114 &5658181574089488813
@@ -7789,7 +7792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsParent: {fileID: 4927494233074792045}
-  startingWeaponIndex: 5
+  startingWeaponIndex: 4
   player: {fileID: 0}
   armsRig: {fileID: 8172524072639773383}
   aimRig: {fileID: 4915895374675892170}

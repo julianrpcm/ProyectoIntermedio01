@@ -12,7 +12,7 @@ public class WeaponManager : MonoBehaviour
 {
     [Header("configurations")]
     [SerializeField] Transform weaponsParent;
-    [SerializeField] int startingWeaponIndex = -1;
+    public int startingWeaponIndex = -1;
 
     [Header("Player")]
     [SerializeField] private GameObject player;
