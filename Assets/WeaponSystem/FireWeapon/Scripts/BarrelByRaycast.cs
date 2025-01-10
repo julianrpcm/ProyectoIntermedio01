@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -28,6 +29,12 @@ public class BarrelByRaycast : BarrelBase, IHitter
     [HideInInspector] public bool shotgunIsReloading = false;
     [SerializeField] private float desertEagleReloadingTime = 1.5f;
     [HideInInspector] public bool desertEagleIsReloading = false;
+
+    [Header("VFX")]
+    [SerializeField] private GameObject shootLight;
+    [SerializeField] private float timeToMakeShootLightDisappear_ForDesertEagle = 0.1f;
+    [SerializeField] private float timeToMakeShootLightDisappear_ForShotgun = 0.1f;
+    private float timeToMakeShootLightDisappear;
 
 
     private void Start()
@@ -71,6 +78,8 @@ public class BarrelByRaycast : BarrelBase, IHitter
                 {
                     //Debug.Log("Disparo desde Shoot()");
                     MakeTheShot();
+                    if (shootLight != null)
+                        ChooseShootFlash(2);
 
                     if (isOriginalShotgun)
                     {
@@ -94,6 +103,7 @@ public class BarrelByRaycast : BarrelBase, IHitter
                 if (canShoot && !desertEagleIsReloading && weaponManager.desertEagleAmmo != 0 && weaponManager.desertEagleHasAmmo)
                 {
                     MakeTheShot();
+                    ChooseShootFlash(1);
 
                     weaponManager.contadorDesertEagleShootDelay = 0f;
                     weaponManager.desertEagleAmmo--;
@@ -138,5 +148,27 @@ public class BarrelByRaycast : BarrelBase, IHitter
     public float GetDamage()
     {
         return damage;
+    }
+
+    private void ChooseShootFlash(int weapon)   // 1 = DesertEagle | 2 = Shotgun
+    {
+        switch (weapon)
+        {
+            case 1:
+                timeToMakeShootLightDisappear = timeToMakeShootLightDisappear_ForDesertEagle;
+                StartCoroutine("ShootFlash");
+                break;
+            case 2:
+                timeToMakeShootLightDisappear = timeToMakeShootLightDisappear_ForShotgun;
+                StartCoroutine("ShootFlash");
+                break;
+        }
+    }
+
+    private IEnumerator ShootFlash()
+    {
+        shootLight.SetActive(true);
+        yield return new WaitForSeconds(timeToMakeShootLightDisappear);
+        shootLight.SetActive(false);
     }
 }

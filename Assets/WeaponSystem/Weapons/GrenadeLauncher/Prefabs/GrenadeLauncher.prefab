@@ -200,6 +200,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugShoot: 0
   projectile: {fileID: 2016043943417158817, guid: 093fed9225ab6e84aa392c11f3bf192c, type: 3}
+  weaponManager: {fileID: 0}
+  canShoot: 0
+  isPlayer: 0
+  shotgunCartridgesAngle: 140
+  subMachineGunReloadingTime: 2
+  grenadeLauncherReloadingTime: 10
+  isReloading: 0
+  shootLight: {fileID: 0}
+  timeToMakeShootLightDisappear_ForMachineGun: 0.05
+  timeToMakeShootLightDisappear_ForGrenadeLauncher: 0.1
 --- !u!1001 &980575264197528440
 PrefabInstance:
   m_ObjectHideFlags: 0

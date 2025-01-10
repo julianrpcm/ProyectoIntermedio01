@@ -24,6 +24,12 @@ public class BarrelByInstantiation : BarrelBase
 
     [HideInInspector] public bool isReloading = false;
 
+    [Header("VFX")]
+    [SerializeField] private GameObject shootLight;
+    [SerializeField] private float timeToMakeShootLightDisappear_ForMachineGun = 0.05f;
+    [SerializeField] private float timeToMakeShootLightDisappear_ForGrenadeLauncher = 0.5f;
+    private float timeToMakeShootLightDisappear;
+
     private void Start()
     {
         canShoot = true;
@@ -61,6 +67,7 @@ public class BarrelByInstantiation : BarrelBase
                     weaponManager.subMachineGunAmmo--;
                     //Debug.Log("subMachineGunAmmo: " + weaponManager.subMachineGunAmmo);
                     Instantiate(projectile, transform.position, transform.rotation);
+                    ChooseShootFlash(1);
                     if (weaponManager.subMachineGunAmmo == 0)
                     {
                         weaponManager.subMachineGunHasAmmo = false;
@@ -73,6 +80,7 @@ public class BarrelByInstantiation : BarrelBase
                     weaponManager.grenadeLauncherAmmo--;
                     //Debug.Log("grenadeLauncherAmmo: " + weaponManager.grenadeLauncherAmmo);
                     Instantiate(projectile, transform.position, transform.rotation);
+                    ChooseShootFlash(2);
                     if (weaponManager.grenadeLauncherAmmo == 0)
                     {
                         weaponManager.grenadeLauncherHasAmmo = false;
@@ -125,57 +133,25 @@ public class BarrelByInstantiation : BarrelBase
             Instantiate(projectile, transform.position, transform.rotation);
     }
 
-    /*
-    public override void Shoot()
+    private void ChooseShootFlash(int weapon)   // 1 = SubMachineGun | 2 = GrenadeLauncher
     {
-        if (canShoot)
+        switch (weapon)
         {
-            if (projectile.gameObject.name == "SubMachineGunBullet")
-                weaponManager.contadorMachineGunShootDelay = 0f;
-            if (projectile.gameObject.name == "ShotgunBullet")
-                weaponManager.contadorShotgunShootDelay = 0f;
-            if (projectile.gameObject.name == "Grenade")
-                weaponManager.contadorGrenadeLauncherShootDelay = 0f;
-
-            canShoot = false;
-
-            Instantiate(projectile, transform.position, transform.rotation);
-
-            if (projectile.gameObject.name == "ShotgunBullet")
-            {
-                {
-                    //int shotgunCartridgesShot = Random.Range(minShotgunCartridges, maxShotgunCartridges+1);
-                    //Debug.Log("postas disparadas = " + shotgunCartridgesShot);
-
-                    float distanceBetweenBullets = 0f;
-                    List<GameObject> instantiatedProjectiles = new List<GameObject>();
-
-                    for (int i = 0; i < shotgunCartridgesShot; i++)
-                    {
-                        //float randomInstantiationAngle = Random.Range((-shotgunCartridgesAngle / 2), (shotgunCartridgesAngle / 2));
-                        float instantiationAngle = (-shotgunCartridgesAngle / 2) + distanceBetweenBullets;
-                        Quaternion spreadRotation = Quaternion.Euler(0f, instantiationAngle, 0f);
-
-                        GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation * spreadRotation);
-                        //audioSource.Play();
-
-                        distanceBetweenBullets += 20f;
-
-                        foreach (GameObject otherProjectile in instantiatedProjectiles)
-                        {
-                            if (newProjectile.TryGetComponent<Collider>(out Collider newCollider) &&
-                                otherProjectile.TryGetComponent<Collider>(out Collider otherCollider))
-                            {
-                                Physics.IgnoreCollision(newCollider, otherCollider);
-                            }
-                        }
-
-                        instantiatedProjectiles.Add(newProjectile);
-                        //ChooseShootFlash(2);
-                    }
-                }
-            }
+            case 1:
+                timeToMakeShootLightDisappear = timeToMakeShootLightDisappear_ForMachineGun;
+                StartCoroutine("ShootFlash");
+                break;
+            case 2:
+                timeToMakeShootLightDisappear = timeToMakeShootLightDisappear_ForGrenadeLauncher;
+                StartCoroutine("ShootFlash");
+                break;
         }
     }
-    */
+
+    private IEnumerator ShootFlash()
+    {
+        shootLight.SetActive(true);
+        yield return new WaitForSeconds(timeToMakeShootLightDisappear);
+        shootLight.SetActive(false);
+    }
 }
