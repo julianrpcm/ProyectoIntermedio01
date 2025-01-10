@@ -13,6 +13,7 @@ public class Entity : MonoBehaviour
     public Vector3 lastTargetPosition = Vector3.zero;
     public bool lastTargetPositionIsNotVisible = false;
 
+    [SerializeField] private bool isAmbusher = false;
     
     private void Awake()
     {
@@ -24,9 +25,10 @@ public class Entity : MonoBehaviour
 
     public IPerceptible GetTarget()
     {
-
         IPerceptible target = null;
-        IPerceptible closesAudible = hearing.GetClosestPerceptible();
+        IPerceptible closesAudible = null;
+        if (!isAmbusher)
+            closesAudible = hearing.GetClosestPerceptible();
         IPerceptible closesVisible = sight.GetClosestVisible();
 
         if ((closesAudible != null) && (closesVisible == null))

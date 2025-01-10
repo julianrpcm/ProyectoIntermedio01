@@ -34,11 +34,14 @@ public class BaseState : MonoBehaviour
 
     protected void LookAtTarget()
     {
-        Debug.DrawLine(transform.position + Vector3.up * 2f, entity.GetTarget().GetTransform().position + Vector3.up * 2f, Color.red, 0.3f);
-        float angularDistance = Vector3.SignedAngle(transform.forward, entity.GetTarget().GetTransform().position - transform.position, Vector3.up);
+        Debug.DrawLine(transform.position + Vector3.up * 2f, GetTarget().GetTransform().position + Vector3.up * 2f, Color.red, 0.3f);
+        float angularDistance = Vector3.SignedAngle(transform.forward, GetTarget().GetTransform().position - transform.position, Vector3.up);
         Quaternion rotationToApply = Quaternion.AngleAxis(angularDistance, Vector3.up);
         transform.rotation = rotationToApply * transform.rotation;
     }
 
-
+    protected IPerceptible GetTarget()
+    {
+        return entity.sight.GetClosestVisible();
+    }
 }

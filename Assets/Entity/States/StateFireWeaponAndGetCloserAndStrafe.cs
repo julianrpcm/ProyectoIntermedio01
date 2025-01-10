@@ -8,7 +8,6 @@ public class StateFireWeaponAndGetCloserAndStrafe : StateFireWeapon
     {
         base.OnEnable();
         entity.agent.isStopped = false;
-
     }
 
     protected override void Update()
@@ -16,10 +15,10 @@ public class StateFireWeaponAndGetCloserAndStrafe : StateFireWeapon
         base.Update();  
 
 
-        float distance = Vector3.Distance(transform.position ,entity.GetTarget().GetTransform().position);
+        float distance = Vector3.Distance(transform.position, GetTarget().GetTransform().position);
         if (distance > distanceForStrafint)
         {
-            entity.agent.destination = entity.GetTarget().GetTransform().position;
+            entity.agent.destination = GetTarget().GetTransform().position;
         }
         else
         {
