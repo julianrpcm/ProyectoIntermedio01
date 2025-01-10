@@ -9,6 +9,7 @@ TagManager:
   - Mass
   - Mission
   - Instruction
+  - Projectile
   layers:
   - Default
   - TransparentFX

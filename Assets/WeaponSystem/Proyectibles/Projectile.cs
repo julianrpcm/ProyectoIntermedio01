@@ -13,7 +13,6 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         hitCollider = GetComponent<HitCollider>();
-        
     }
 
     private void OnEnable()
@@ -41,6 +40,12 @@ public class Projectile : MonoBehaviour
                 }
                 );
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "Projectile")
+            Destroy(gameObject);
     }
 
     private void OnDisable()

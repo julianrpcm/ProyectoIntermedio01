@@ -15,15 +15,19 @@ public class HitCollider : MonoBehaviour, IHitter
     private void OnCollisionEnter(Collision collision)
     {
         CheckCollider(collision.collider);
+        //Debug.Log("OnCollisionEnter with: " + collision.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         CheckCollider(other);
+        //Debug.Log("OnTriggerEnter with: " + other.gameObject);
     }
 
     private void CheckCollider(Collider otherCollider)
     {
+        //Debug.Log("CheckCollider()");
+
         if (affectedTags.Contains(otherCollider.tag) &&  
             otherCollider.TryGetComponent<HurtCollider>(out HurtCollider hurtCollider))
         {
@@ -37,5 +41,4 @@ public class HitCollider : MonoBehaviour, IHitter
     {
         return damage;
     }
-
 }
