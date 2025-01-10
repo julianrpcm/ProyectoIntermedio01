@@ -25,8 +25,10 @@ public class EntityHearing : MonoBehaviour
 
     internal void NotifyHeardSoundEmitter(EntitySoundEmiter entitySoundEmiter)
     {
-
+        //Debug.Log("Entro a NotifyHeardSoundEmitter()");
         IPerceptible perceptible = entitySoundEmiter.GetComponent<IPerceptible>();
+        //Debug.Log("perceptible: " + perceptible);
+
         if (perceptible != null)
         {
             HeardPreceptible heardPreceptible = heardPerceptibles.Find((x) => x.perceptible == perceptible);
@@ -66,7 +68,7 @@ public class EntityHearing : MonoBehaviour
             }
         }
 
+        //Debug.Log("closestPerceptible: " + closestPerceptible);
         return closestPerceptible;
     }
-
 }

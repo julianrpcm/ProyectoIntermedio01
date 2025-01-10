@@ -21,8 +21,11 @@ public class EntitySoundEmiter : MonoBehaviour
         if (!emitOnlyOnMovement || 
             (Vector3.Distance(transform.position, lastEmissionPosition) > movementDetectionThreshold))
         {
+            //Debug.Log("if (!emitOnlyOnMovement || (Vector3.Distance(transform.position, lastEmissionPosition) > movementDetectionThreshold))");
+
             if (Time.time - lastEmissionTime > (1f / emissionsPerSecond))
             {
+                //Debug.Log("if (Time.time - lastEmissionTime > (1f / emissionsPerSecond))");
                 Emit();
             }
         }
@@ -30,6 +33,8 @@ public class EntitySoundEmiter : MonoBehaviour
 
     void Emit()
     {
+        //Debug.Log("Emit");
+
         lastEmissionTime += Time.time;
         lastEmissionPosition = transform.position;
 
