@@ -29794,7 +29794,7 @@ MonoBehaviour:
   verticalDispersion: 0
   canShoot: 0
   isShotgun: 1
-  isPlayer: 0
+  isPlayer: 1
   shotgunReloadingTime: 4
   shotgunIsReloading: 0
 --- !u!1 &1591873224
@@ -42179,7 +42179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551482815019363362, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6576996886113750142, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
       propertyPath: m_LocalPosition.z
