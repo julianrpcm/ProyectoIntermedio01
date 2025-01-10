@@ -9836,6 +9836,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &475121468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 475121469}
+  m_Layer: 0
+  m_Name: TURBOPAQUITO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &475121469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475121468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475638457
 GameObject:
   m_ObjectHideFlags: 0
@@ -42148,7 +42179,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551482815019363362, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576996886113750142, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.23090558
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896020176598076317, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.246
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896020176598076317, guid: 8f1401761d7b3b1448941f60f5ef2d8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01900073
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42503,8 +42546,9 @@ SceneRoots:
   - {fileID: 1864843824}
   - {fileID: 116958120}
   - {fileID: 694865598}
-  - {fileID: 1848593773}
   - {fileID: 1245689018}
+  - {fileID: 475121469}
+  - {fileID: 1848593773}
   - {fileID: 354897278}
   - {fileID: 8875023662839119587}
   - {fileID: 881243067}
