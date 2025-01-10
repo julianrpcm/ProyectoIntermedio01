@@ -6,7 +6,8 @@ public class AmmoPack : MonoBehaviour
     {
         smgAmmo,
         sgAmmo,
-        glAmmo
+        glAmmo,
+        deAmmo
     }
 
     [SerializeField] private typeOfAmmo ammo;
@@ -17,12 +18,24 @@ public class AmmoPack : MonoBehaviour
         if (other.gameObject.tag == "Player" && other.GetComponent<WeaponManager>() != null)
         {
             wm = other.GetComponent<WeaponManager>();
-            if (ammo == typeOfAmmo.smgAmmo)
-                wm.subMachineGunTotalAmmo += wm.subMachineGunCharger;
-            else if (ammo == typeOfAmmo.sgAmmo)
-                wm.shotgunTotalAmmo += wm.shotgunCharger;
-            else if (ammo == typeOfAmmo.glAmmo)
-                wm.grenadeLauncherTotalAmmo += wm.grenadeLauncherCharger;
+
+            switch (ammo)
+            {
+                case typeOfAmmo.smgAmmo:
+                    wm.subMachineGunTotalAmmo += wm.subMachineGunCharger;
+                    break;
+                case typeOfAmmo.sgAmmo:
+                    wm.shotgunTotalAmmo += wm.shotgunCharger;
+                    break;
+                case typeOfAmmo.glAmmo:
+                    wm.grenadeLauncherTotalAmmo += wm.grenadeLauncherCharger;
+                    break;
+                case typeOfAmmo.deAmmo:
+                    wm.desertEagleTotalAmmo += wm.desertEagleCharger;
+                    break;
+                default:
+                    break;
+            }
 
             Destroy(gameObject);
         }

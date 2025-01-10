@@ -33,38 +33,48 @@ public class WeaponManager : MonoBehaviour
 
     [Header("FireWeapons")]
     [SerializeField] private BarrelByInstantiation machineGunBBI;
-    //[SerializeField] private BarrelByInstantiation shotgunBBI;
+    [SerializeField] private BarrelByRaycast desertEagleBBR;
     [SerializeField] private BarrelByRaycast shotgunBBR;
     [SerializeField] private BarrelByInstantiation grenadeLauncherBBI;
+
     [SerializeField] private float machineGunShootDelay;
+    [SerializeField] private float desertEagleShootDelay;
     [SerializeField] private float shotgunShootDelay;
     [SerializeField] private float grenadeLauncherShootDelay;
+
     [HideInInspector] public float contadorMachineGunShootDelay;
+    [HideInInspector] public float contadorDesertEagleShootDelay;
     [HideInInspector] public float contadorShotgunShootDelay;
     [HideInInspector] public float contadorGrenadeLauncherShootDelay;
 
     [Header("Ammo")]
     public bool subMachineGunHasAmmo = true;
+    public bool desertEagleHasAmmo = true;
     public bool shotgunHasAmmo = true;
     public bool grenadeLauncherHasAmmo = true;
 
     public float subMachineGunAmmo = 30f;
+    public float desertEagleAmmo = 8f;
     public float shotgunAmmo = 4f;
     public float grenadeLauncherAmmo = 1f;
 
     public float subMachineGunTotalAmmo = 300f;
+    public float desertEagleTotalAmmo = 80f;
     public float shotgunTotalAmmo = 40f;
     public float grenadeLauncherTotalAmmo = 10f;
 
     public float subMachineGunCharger = 30f;
+    public float desertEagleCharger = 8f;
     public float shotgunCharger = 4f;
     public float grenadeLauncherCharger = 1f;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI subMGAmmoUI;
+    [SerializeField] private TextMeshProUGUI desEagAmmoUI;
     [SerializeField] private TextMeshProUGUI shotGAmmoUI;
     [SerializeField] private TextMeshProUGUI gLaunchAmmoUI;
     [SerializeField] private TextMeshProUGUI subMGReloadingText;
+    [SerializeField] private TextMeshProUGUI desEagReloadingText;
     [SerializeField] private TextMeshProUGUI shotGReloadingText;
     [SerializeField] private TextMeshProUGUI gLaunchReloadingText;
 
@@ -82,14 +92,17 @@ public class WeaponManager : MonoBehaviour
         SelectWeapon(startingWeaponIndex);
 
         contadorMachineGunShootDelay = 0f;
+        contadorDesertEagleShootDelay = 0f;
         contadorShotgunShootDelay = 0f;
         contadorGrenadeLauncherShootDelay = 0f;
 
         subMachineGunHasAmmo = true;
+        desertEagleHasAmmo = true;
         shotgunHasAmmo = true;
         grenadeLauncherHasAmmo = true;
 
         subMachineGunCharger = subMachineGunAmmo;
+        desertEagleCharger = desertEagleAmmo;
         shotgunCharger = shotgunAmmo;
         grenadeLauncherCharger = grenadeLauncherAmmo;
     }
@@ -115,6 +128,11 @@ public class WeaponManager : MonoBehaviour
                 machineGunBBI.isReloading = false;
                 subMGReloadingText.gameObject.SetActive(false);
             }
+            if (!desertEagleBBR.gameObject.activeInHierarchy)
+            {
+                desertEagleBBR.desertEagleIsReloading = false;
+                desEagReloadingText.gameObject.SetActive(false);
+            }
             if (!shotgunBBR.gameObject.activeInHierarchy)
             {
                 shotgunBBR.shotgunIsReloading = false;
@@ -127,6 +145,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             subMGAmmoUI.text = "" + subMachineGunAmmo + " / " + subMachineGunTotalAmmo;
+            desEagAmmoUI.text = "" + desertEagleAmmo + " / " + desertEagleTotalAmmo;
             shotGAmmoUI.text = "" + shotgunAmmo + " / " + shotgunTotalAmmo;
             gLaunchAmmoUI.text = "" + grenadeLauncherAmmo + " / " + grenadeLauncherTotalAmmo;
 
@@ -134,6 +153,10 @@ public class WeaponManager : MonoBehaviour
             contadorMachineGunShootDelay += Time.deltaTime;
             if (contadorMachineGunShootDelay >= machineGunShootDelay)
                 machineGunBBI.canShoot = true;
+
+            contadorDesertEagleShootDelay += Time.deltaTime;
+            if (contadorDesertEagleShootDelay >= desertEagleShootDelay)
+                desertEagleBBR.canShoot = true;
 
             contadorShotgunShootDelay += Time.deltaTime;
             if (contadorShotgunShootDelay >= shotgunShootDelay)
@@ -328,7 +351,7 @@ public class WeaponManager : MonoBehaviour
         return currentWeapon != -1 ? weapons[currentWeapon] : null;
     }
 
-    public IEnumerator Reload(float timeForReloading, int weapon, GameObject thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher
+    public IEnumerator Reload(float timeForReloading, int weapon, GameObject thisGameObject)  // 1 -> SMG     2 -> Shotgun     3 -> GrenadeLauncher     4 -> Desert Eagle
     {
         if (gameObject.tag == "Player")
         {
@@ -338,6 +361,8 @@ public class WeaponManager : MonoBehaviour
                 thisGameObject.GetComponent<BarrelByInstantiation>().isReloading = true;
             else if (weapon == 2)
                 thisGameObject.GetComponent<BarrelByRaycast>().shotgunIsReloading = true;
+            else if (weapon == 4)
+                thisGameObject.GetComponent<BarrelByRaycast>().desertEagleIsReloading = true;
 
             if (weapon == 1 && subMachineGunTotalAmmo > 0f && subMachineGunAmmo < subMachineGunCharger)
             {
@@ -354,7 +379,7 @@ public class WeaponManager : MonoBehaviour
                 if (subMachineGunTotalAmmoSave >= subMachineGunCharger)
                     subMachineGunAmmo = subMachineGunCharger;
                 else if (subMachineGunTotalAmmoSave < subMachineGunCharger && subMachineGunTotalAmmoSave > 0f)
-                    if (subMachineGunAmmo + subMachineGunTotalAmmoSave <= 30)
+                    if (subMachineGunAmmo + subMachineGunTotalAmmoSave <= subMachineGunCharger)
                         subMachineGunAmmo += subMachineGunTotalAmmoSave;
                     else
                         subMachineGunAmmo = subMachineGunCharger;
@@ -378,7 +403,7 @@ public class WeaponManager : MonoBehaviour
                 if (shotgunTotalAmmoSave >= shotgunCharger)
                     shotgunAmmo = shotgunCharger;
                 else if (shotgunTotalAmmoSave < shotgunCharger && shotgunTotalAmmoSave > 0f)
-                    if (shotgunAmmo + shotgunTotalAmmoSave <= 30)
+                    if (shotgunAmmo + shotgunTotalAmmoSave <= shotgunCharger)
                         shotgunAmmo += shotgunTotalAmmoSave;
                     else
                         shotgunAmmo = shotgunCharger;
@@ -402,7 +427,7 @@ public class WeaponManager : MonoBehaviour
                 if (grenadeLauncherTotalAmmoSave >= grenadeLauncherCharger)
                     grenadeLauncherAmmo = grenadeLauncherCharger;
                 else if (grenadeLauncherTotalAmmoSave < grenadeLauncherCharger && grenadeLauncherTotalAmmoSave > 0f)
-                    if (grenadeLauncherAmmo + grenadeLauncherTotalAmmoSave <= 30)
+                    if (grenadeLauncherAmmo + grenadeLauncherTotalAmmoSave <= grenadeLauncherCharger)
                         grenadeLauncherAmmo += grenadeLauncherTotalAmmoSave;
                     else
                         grenadeLauncherAmmo = grenadeLauncherCharger;
@@ -411,11 +436,37 @@ public class WeaponManager : MonoBehaviour
 
                 gLaunchReloadingText.gameObject.SetActive(false);
             }
+            else if (weapon == 4 && desertEagleTotalAmmo > 0f && desertEagleAmmo < desertEagleCharger)
+            {
+                desEagReloadingText.gameObject.SetActive(true);
+                yield return new WaitForSeconds(timeForReloading);
+
+                float desertEagleTotalAmmoSave = desertEagleTotalAmmo;
+
+                desertEagleTotalAmmo -= (desertEagleCharger - desertEagleAmmo);
+
+                if (desertEagleTotalAmmo < 0f)
+                    desertEagleTotalAmmo = 0f;
+
+                if (desertEagleTotalAmmoSave >= desertEagleCharger)
+                    desertEagleAmmo = desertEagleCharger;
+                else if (desertEagleTotalAmmoSave < desertEagleCharger && desertEagleTotalAmmoSave > 0f)
+                    if (desertEagleAmmo + desertEagleTotalAmmoSave <= desertEagleCharger)
+                        desertEagleAmmo += desertEagleTotalAmmoSave;
+                    else
+                        desertEagleAmmo = desertEagleCharger;
+
+                desertEagleHasAmmo = true;
+
+                desEagReloadingText.gameObject.SetActive(false);
+            }
 
             if (weapon == 1 || weapon == 3)
                 thisGameObject.GetComponent<BarrelByInstantiation>().isReloading = false;
             else if (weapon == 2)
                 thisGameObject.GetComponent<BarrelByRaycast>().shotgunIsReloading = false;
+            else if (weapon == 4)
+                thisGameObject.GetComponent<BarrelByRaycast>().desertEagleIsReloading = false;
             //Debug.Log("Ya puedo disparar");
         }
     }

@@ -18,12 +18,17 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     [Header("Variables")]
     [HideInInspector] public bool canShoot;
+    [SerializeField] private bool isOriginalShotgun;
     [SerializeField] private bool isShotgun;
+    [SerializeField] private bool isDesertEagle;
     [SerializeField] private bool isPlayer = false;
 
     [Header("Ammo")]
     [SerializeField] private float shotgunReloadingTime = 4f;
     [HideInInspector] public bool shotgunIsReloading = false;
+    [SerializeField] private float desertEagleReloadingTime = 1.5f;
+    [HideInInspector] public bool desertEagleIsReloading = false;
+
 
     private void Start()
     {
@@ -32,8 +37,13 @@ public class BarrelByRaycast : BarrelBase, IHitter
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !shotgunIsReloading && isShotgun)
-            ReloadShotgun();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!shotgunIsReloading && isOriginalShotgun && isShotgun)
+                ReloadShotgun();
+            else if (!desertEagleIsReloading && isDesertEagle)
+                ReloadDesertEagle();
+        }
     }
 
     private void ReloadShotgun()
@@ -42,36 +52,59 @@ public class BarrelByRaycast : BarrelBase, IHitter
         StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this.gameObject));
     }
 
+    private void ReloadDesertEagle()
+    {
+        //Debug.Log("ReloadDesertEagle()");
+        StartCoroutine(weaponManager.Reload(desertEagleReloadingTime, 4, this.gameObject));
+    }
+
     public override void Shoot()
     {
         if (isPlayer)
         {
-            if (originalBBR.canShoot && !originalBBR.shotgunIsReloading && weaponManager.shotgunAmmo != 0 && weaponManager.shotgunHasAmmo)
+            if (isShotgun)
             {
-                //Debug.Log("Disparo desde Shoot()");
-                MakeTheShot();
+                //Debug.Log("originalBBR.canShoot = " + originalBBR.canShoot);
+                //Debug.Log("weaponManager.shotgunHasAmmo = " + weaponManager.shotgunHasAmmo);
 
-                if (isShotgun)
+                if (originalBBR.canShoot && !originalBBR.shotgunIsReloading && weaponManager.shotgunAmmo != 0 && weaponManager.shotgunHasAmmo)
                 {
-                    //Debug.Log("Entro al if de la escopeta");
-                    weaponManager.contadorShotgunShootDelay = 0f;
-                    weaponManager.shotgunAmmo--;
-                    //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
+                    //Debug.Log("Disparo desde Shoot()");
+                    MakeTheShot();
 
-                    if (weaponManager.shotgunAmmo == 0)
+                    if (isOriginalShotgun)
                     {
-                        //Debug.Log("Estoy sin municion en la escopeta");
+                        //Debug.Log("Entro al if de la escopeta");
+                        weaponManager.contadorShotgunShootDelay = 0f;
+                        weaponManager.shotgunAmmo--;
+                        //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
 
-                        weaponManager.shotgunHasAmmo = false;
-                        //StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
+                        if (weaponManager.shotgunAmmo == 0)
+                        {
+                            //Debug.Log("Estoy sin municion en la escopeta");
+
+                            weaponManager.shotgunHasAmmo = false;
+                            //StartCoroutine(weaponManager.Reload(shotgunReloadingTime, 2, this));
+                        }
                     }
                 }
             }
+            else if (isDesertEagle)
+            {
+                if (canShoot && !desertEagleIsReloading && weaponManager.desertEagleAmmo != 0 && weaponManager.desertEagleHasAmmo)
+                {
+                    MakeTheShot();
+
+                    weaponManager.contadorDesertEagleShootDelay = 0f;
+                    weaponManager.desertEagleAmmo--;
+
+                    if (weaponManager.desertEagleAmmo == 0)
+                        weaponManager.desertEagleHasAmmo = false;
+                }
+            }
         }
-        else
-        {
+        else if (!isPlayer)
             MakeTheShot();
-        }
     }
 
     private void MakeTheShot()
