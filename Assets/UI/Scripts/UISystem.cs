@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class UISystem : MonoBehaviour
 {
+    [SerializeField] private GameObject controlsMenu;
 
     // Cargar una escena de juego.
     public void PlayGame()
@@ -16,6 +17,9 @@ public class UISystem : MonoBehaviour
         Debug.Log("Salir del juego"); // Esto solo se muestra en el editor.
         Application.Quit();
     }
+
+    public void ControlPanels(GameObject panel)
+    {
+        panel.SetActive(!panel.activeInHierarchy);
+    }
 }
-
-
