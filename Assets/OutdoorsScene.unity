@@ -4024,7 +4024,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a53c1ecc1246a354c801f6a8c3612a7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.03
+      value: -2.896
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a53c1ecc1246a354c801f6a8c3612a7e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4032,7 +4032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a53c1ecc1246a354c801f6a8c3612a7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.408
+      value: -7.966
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a53c1ecc1246a354c801f6a8c3612a7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6025,30 +6025,39 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   machineGunBBI: {fileID: 0}
+  desertEagleBBR: {fileID: 0}
   shotgunBBR: {fileID: 0}
   grenadeLauncherBBI: {fileID: 0}
   machineGunShootDelay: 0
+  desertEagleShootDelay: 0
   shotgunShootDelay: 0
   grenadeLauncherShootDelay: 0
   contadorMachineGunShootDelay: 0
+  contadorDesertEagleShootDelay: 0
   contadorShotgunShootDelay: 0
   contadorGrenadeLauncherShootDelay: 0
   subMachineGunHasAmmo: 1
+  desertEagleHasAmmo: 1
   shotgunHasAmmo: 1
   grenadeLauncherHasAmmo: 1
   subMachineGunAmmo: 30
+  desertEagleAmmo: 8
   shotgunAmmo: 4
   grenadeLauncherAmmo: 1
   subMachineGunTotalAmmo: 300
+  desertEagleTotalAmmo: 80
   shotgunTotalAmmo: 40
   grenadeLauncherTotalAmmo: 10
   subMachineGunCharger: 30
+  desertEagleCharger: 8
   shotgunCharger: 4
   grenadeLauncherCharger: 1
   subMGAmmoUI: {fileID: 0}
+  desEagAmmoUI: {fileID: 0}
   shotGAmmoUI: {fileID: 0}
   gLaunchAmmoUI: {fileID: 0}
   subMGReloadingText: {fileID: 0}
+  desEagReloadingText: {fileID: 0}
   shotGReloadingText: {fileID: 0}
   gLaunchReloadingText: {fileID: 0}
 --- !u!114 &356442581
@@ -6109,6 +6118,9 @@ MonoBehaviour:
   currentLife: 0
   timeToStartRegenerating: 10
   healthRegenPerSecond: 1
+  subMachineGunAmmoPrefab: {fileID: 0}
+  desertEagleAmmoPrefab: {fileID: 0}
+  shotgunAmmoPrefab: {fileID: 0}
   debugLifeToSubtract: 0
   debugApplyLifeChange: 0
 --- !u!114 &356442582
