@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: e027c14bd897edf4284f78ceb532a217
+guid: 19067ff6a6634684e91179185907cab8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: restaurant
+    second: {fileID: 2100000, guid: 657edfb5cf520944aa2c8ef07f53b25c, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: restaurantbits_texture
+    second: {fileID: 2800000, guid: 6f4ec9e700a0e18449221d448ca5f370, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
