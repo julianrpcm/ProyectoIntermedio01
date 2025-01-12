@@ -10,6 +10,7 @@ TagManager:
   - Mission
   - Instruction
   - Projectile
+  - door
   layers:
   - Default
   - TransparentFX
