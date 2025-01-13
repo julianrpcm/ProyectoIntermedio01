@@ -4,19 +4,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour, IMovingAnimatable, IPerceptible
 {
-    //[Header("The Player")]
-    //[SerializeField] Transform target;
-
-    //[Header("Configurations")]
-    //[SerializeField] float attackDistance = 2f;
-    //[SerializeField] float timeBetweenAttacks = 2f;
-    //[SerializeField] float attackDuration = 0.25f;
-
-    //[Header("References")]
-    //[SerializeField] Transform hitCollider;
-
-    //float timeOfLastAttack;
-
     [SerializeField] IPerceptible.Faction faction = IPerceptible.Faction.Axis;
     Animator animator;
     EntityLife entityLife;
@@ -70,10 +57,16 @@ public class EnemyController : MonoBehaviour, IMovingAnimatable, IPerceptible
         agent.enabled = false;
         GetComponent<Ragdollizer>()?.Ragdollize();
         animator.enabled = false;
-        DOVirtual.DelayedCall(5f, () => Destroy(gameObject));
+        DOVirtual.DelayedCall(5f, () => EnemyDeath());
         decissionTree.Stop();
 
         //hitCollider.gameObject.SetActive(false);
+    }
+
+    private void EnemyDeath()
+    {
+        gameObject.transform.parent.GetComponent<DestroyEnemyParent>().StartCoroutine("BeDestroyed");
+        Destroy(gameObject);
     }
 
     bool IMovingAnimatable.GetIsGorunded()
