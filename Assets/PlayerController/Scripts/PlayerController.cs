@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
 {
     [Header("Movements")]
-
     [SerializeField] float linearAcceleration = 50f;
    
     //[SerializeField][FormerlySerializedAs("speed")] float maxSpeed = 5f;
@@ -51,6 +50,7 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
 
     [Header("UI")]
     [SerializeField] private GameObject pauseMenuUI;
+    [HideInInspector] public bool gameIsPaused = false;
     [SerializeField] private GameObject controlsMenuOption;
 
     private void Awake()
@@ -345,6 +345,7 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
     {
         if (!pauseMenuUI.activeInHierarchy)
         {
+            gameIsPaused = true;
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0.0f;
             //Cursor.lockState = CursorLockMode.Confined;
@@ -358,6 +359,7 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
             Time.timeScale = 1.0f;
             //Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            gameIsPaused = false;
         }
     }
 

@@ -76,7 +76,8 @@ public class WeaponManagerController : MonoBehaviour
 
     void OnShoot(InputAction.CallbackContext ctx)
     {
-        weaponManager.PerformShoot();
+        if (!gameObject.GetComponent<PlayerController>().gameIsPaused)
+            weaponManager.PerformShoot();
     }
 
     void OnContinuousShoot(InputAction.CallbackContext ctx)

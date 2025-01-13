@@ -40394,6 +40394,7 @@ MonoBehaviour:
   jump: {fileID: -5132373904684819549, guid: cbbbbdc0a1776534d979d50ae8193fbd, type: 3}
   walk: {fileID: -9164312154856662131, guid: cbbbbdc0a1776534d979d50ae8193fbd, type: 3}
   pauseMenuUI: {fileID: 1443004529}
+  gameIsPaused: 0
   controlsMenuOption: {fileID: 451711019}
 --- !u!114 &1481694165
 MonoBehaviour:
