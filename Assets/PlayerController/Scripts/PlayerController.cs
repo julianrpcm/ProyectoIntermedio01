@@ -270,6 +270,7 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
 
     void OnAnimatorEvent(string hitColliderName)
     {
+        Debug.Log("Punch");
         hitCollidersParent.Find(hitColliderName)?.gameObject.SetActive(true);
     }
 

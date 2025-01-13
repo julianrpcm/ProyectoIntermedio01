@@ -37,6 +37,9 @@ public class BarrelByRaycast : BarrelBase, IHitter
     private float timeToMakeShootLightDisappear;
 
 
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSource;
+
     private void Start()
     {
         shotgunIsReloading = false;
@@ -84,6 +87,8 @@ public class BarrelByRaycast : BarrelBase, IHitter
                     if (isOriginalShotgun)
                     {
                         //Debug.Log("Entro al if de la escopeta");
+                        audioSource.Play();
+
                         weaponManager.contadorShotgunShootDelay = 0f;
                         weaponManager.shotgunAmmo--;
                         //Debug.Log("shotgunAmmo: " + weaponManager.shotgunAmmo);
@@ -103,6 +108,7 @@ public class BarrelByRaycast : BarrelBase, IHitter
                 if (canShoot && !desertEagleIsReloading && weaponManager.desertEagleAmmo != 0 && weaponManager.desertEagleHasAmmo)
                 {
                     MakeTheShot();
+                    audioSource.Play();
                     ChooseShootFlash(1);
 
                     weaponManager.contadorDesertEagleShootDelay = 0f;

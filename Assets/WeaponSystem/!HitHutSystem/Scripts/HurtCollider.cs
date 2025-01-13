@@ -41,6 +41,16 @@ public class HurtCollider : MonoBehaviour
     public AudioSource damageAudioSource;
     public AudioClip damageSound;
 
+
+    [Header("SFX")]
+    private AudioSource audioSource;
+    [SerializeField][Range(0, 1)] private float hurtSoundProbability = 1.0f;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
 
@@ -77,6 +87,8 @@ public class HurtCollider : MonoBehaviour
     public void NotifyHit(IHitter hitter)
     {
         // Invoca los eventos correspondientes.
+        if (gameObject.tag == "Enemy" && Random.Range(0, 1f) <= hurtSoundProbability)
+            audioSource.Play();
         onHit.Invoke();
         onHitWithDamage.Invoke(hitter.GetDamage());
 

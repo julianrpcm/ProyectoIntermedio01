@@ -30,6 +30,9 @@ public class BarrelByInstantiation : BarrelBase
     [SerializeField] private float timeToMakeShootLightDisappear_ForGrenadeLauncher = 0.5f;
     private float timeToMakeShootLightDisappear;
 
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSource;
+
     private void Start()
     {
         canShoot = true;
@@ -67,6 +70,7 @@ public class BarrelByInstantiation : BarrelBase
                     weaponManager.subMachineGunAmmo--;
                     //Debug.Log("subMachineGunAmmo: " + weaponManager.subMachineGunAmmo);
                     Instantiate(projectile, transform.position, transform.rotation);
+                    audioSource.Play();
                     ChooseShootFlash(1);
                     if (weaponManager.subMachineGunAmmo == 0)
                     {
@@ -80,6 +84,7 @@ public class BarrelByInstantiation : BarrelBase
                     weaponManager.grenadeLauncherAmmo--;
                     //Debug.Log("grenadeLauncherAmmo: " + weaponManager.grenadeLauncherAmmo);
                     Instantiate(projectile, transform.position, transform.rotation);
+                    audioSource.Play();
                     ChooseShootFlash(2);
                     if (weaponManager.grenadeLauncherAmmo == 0)
                     {

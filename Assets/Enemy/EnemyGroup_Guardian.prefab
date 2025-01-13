@@ -198,6 +198,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &203064336518393159
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +266,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &291231489994516776
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +935,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &1717705727878673814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1003,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &1828551111125992840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1071,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &1828813822323891666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1139,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &1875796938898684853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1523,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &2642690975280312463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1712,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &2769798991394268098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,6 +1780,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &2778498017460693975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1928,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &3545723901759884468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2082,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &3915933190252625398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2301,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &4095014439735357450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2369,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &4142497640067980289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2591,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForMachineGun: 0.05
   timeToMakeShootLightDisappear_ForGrenadeLauncher: 0.5
+  audioSource: {fileID: 0}
 --- !u!1 &4550534836058314735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,6 +3434,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &6116974888655626779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +4671,7 @@ GameObject:
   - component: {fileID: 7514236725112436488}
   - component: {fileID: 3715007714916305263}
   - component: {fileID: 8591036818607278683}
+  - component: {fileID: 3277519966337237233}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4800,6 +4816,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3277519966337237233}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   currentLife: 0
   timeToStartRegenerating: 10
   healthRegenPerSecond: 1
@@ -4830,6 +4858,7 @@ MonoBehaviour:
   feedbackDuration: 0.2
   damageAudioSource: {fileID: 0}
   damageSound: {fileID: 0}
+  hurtSoundProbability: 1
 --- !u!136 &2847093142015939495
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5083,6 +5112,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &3277519966337237233
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480516942312331031}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0ab2d8594772db5439570a409b4b9671, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0ab2d8594772db5439570a409b4b9671, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8515538432484752411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,6 +5276,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &8599743883831894189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5384,6 +5511,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForMachineGun: 0.05
   timeToMakeShootLightDisappear_ForGrenadeLauncher: 0.5
+  audioSource: {fileID: 0}
 --- !u!1 &8935911496241341367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5537,6 +5665,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForDesertEagle: 0.1
   timeToMakeShootLightDisappear_ForShotgun: 0.1
+  audioSource: {fileID: 0}
 --- !u!1 &9087057154126207167
 GameObject:
   m_ObjectHideFlags: 0
@@ -7304,6 +7433,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForMachineGun: 0.05
   timeToMakeShootLightDisappear_ForGrenadeLauncher: 0.5
+  audioSource: {fileID: 0}
 --- !u!1001 &2202880618281526656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7696,6 +7826,7 @@ MonoBehaviour:
   shootLight: {fileID: 0}
   timeToMakeShootLightDisappear_ForMachineGun: 0.05
   timeToMakeShootLightDisappear_ForGrenadeLauncher: 0.5
+  audioSource: {fileID: 0}
 --- !u!4 &2530861770262473901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 907836125038637559, guid: c18ebda593dff52478bdd066c5b47a3e, type: 3}

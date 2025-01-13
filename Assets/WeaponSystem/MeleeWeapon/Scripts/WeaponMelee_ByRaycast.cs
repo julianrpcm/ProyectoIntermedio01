@@ -19,6 +19,14 @@ public class WeaponMelee_ByRaycast : WeaponBase, IHitter
     Vector3 oldRaycastStart;
     Vector3 oldRaycastEnd;
 
+    [Header("SFX")]
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         remainingAttackDuration -= Time.deltaTime;
@@ -61,6 +69,8 @@ public class WeaponMelee_ByRaycast : WeaponBase, IHitter
 
     internal override void PerformAttack()
     {
+        audioSource.Play();
+
         oldRaycastStart = raycastStart.position;
         oldRaycastEnd = raycastEnd.position;
         remainingAttackDuration = attackDuration;
