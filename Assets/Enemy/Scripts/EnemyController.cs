@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour, IMovingAnimatable, IPerceptible
     EntityLife entityLife;
     NavMeshAgent agent;
     DecissionTree decissionTree;
+    [SerializeField] private GameObject deathSmoke;
+    [SerializeField] private Transform hips;
 
     private void Awake()
     {
@@ -57,6 +59,8 @@ public class EnemyController : MonoBehaviour, IMovingAnimatable, IPerceptible
         agent.enabled = false;
         GetComponent<Ragdollizer>()?.Ragdollize();
         animator.enabled = false;
+        //DOVirtual.DelayedCall(4.6f, () => deathSmoke.SetActive(true));
+        DOVirtual.DelayedCall(4.9f, () => Instantiate(deathSmoke, hips.position, Quaternion.identity));
         DOVirtual.DelayedCall(5f, () => EnemyDeath());
         decissionTree.Stop();
 
