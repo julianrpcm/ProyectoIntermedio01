@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
     [SerializeField] private GameObject pauseMenuUI;
     [HideInInspector] public bool gameIsPaused = false;
     [SerializeField] private GameObject controlsMenuOption;
+    [SerializeField] private GameObject controlsInGameUI;
 
     private void Awake()
     {
@@ -367,6 +368,11 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
     public void ActivateDeactivateConstrolsMenuOption(bool activate)
     {
         controlsMenuOption.SetActive(activate);
+    }
+
+    public void ActivateDeactivateControlsInGame()
+    {
+        controlsInGameUI.SetActive(!controlsInGameUI.activeInHierarchy);
     }
 
     public void ReturnToMenu()
