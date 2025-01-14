@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour, IPerceptible, IMovingAnimatable
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+
         pauseMenuUI.SetActive(false);
         controlsMenuOption.SetActive(false);
     }
