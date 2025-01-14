@@ -312,23 +312,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W,A,S,D -> Movimiento
-
-    Space -> Saltar
-
-    Right click -> Apuntar
-
-    Left
-    click -> Disparar
-
-    Mouse wheel -> Cambiar de arma
-
-    R -> Recargar
-
-    Shift
-    -> Caminar despacio
-
-    P -> Pausa'
+  m_text: "W,A,S,D -> Movimiento\nEspacio -> Saltar\nClick derecho -> Apuntar\nClick
+    izquierdo -> Disparar\nRueda del rat\xF3n -> Cambiar de arma\nR -> Recargar\nShift
+    -> Caminar despacio\nP -> Pausa"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

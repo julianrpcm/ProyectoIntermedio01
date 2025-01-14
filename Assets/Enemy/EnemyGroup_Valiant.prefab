@@ -700,7 +700,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -800,7 +800,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -1767,7 +1767,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -2094,7 +2094,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -2694,7 +2694,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -3131,7 +3131,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -3199,7 +3199,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -3485,7 +3485,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -4947,7 +4947,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
@@ -5015,7 +5015,7 @@ MonoBehaviour:
   debugShoot: 0
   weaponManager: {fileID: 0}
   originalBBR: {fileID: 3765924314516428644}
-  damage: 2
+  damage: 0.5
   range: 20
   layerMask:
     serializedVersion: 2
