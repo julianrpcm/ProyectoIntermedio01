@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.Events;
 using System.Collections;
 using TMPro;
+using System.Threading;
 
 
 [DefaultExecutionOrder(-10)]
@@ -370,6 +371,8 @@ public class WeaponManager : MonoBehaviour
             if (weapon == 1 && subMachineGunTotalAmmo > 0f && subMachineGunAmmo < subMachineGunCharger)
             {
                 subMGReloadingText.gameObject.SetActive(true);
+                thisGameObject.transform.parent.GetComponent<AudioSource>().Play();
+
                 yield return new WaitForSeconds(timeForReloading);
 
                 float subMachineGunTotalAmmoSave = subMachineGunTotalAmmo;
@@ -394,6 +397,8 @@ public class WeaponManager : MonoBehaviour
             else if (weapon == 2 && shotgunTotalAmmo > 0f && shotgunAmmo < shotgunCharger)
             {
                 shotGReloadingText.gameObject.SetActive(true);
+                thisGameObject.transform.parent.GetComponent<AudioSource>().Play();
+
                 yield return new WaitForSeconds(timeForReloading);
 
                 float shotgunTotalAmmoSave = shotgunTotalAmmo;
@@ -418,6 +423,8 @@ public class WeaponManager : MonoBehaviour
             else if (weapon == 3 && grenadeLauncherTotalAmmo > 0f && grenadeLauncherAmmo < grenadeLauncherCharger)
             {
                 gLaunchReloadingText.gameObject.SetActive(true);
+                thisGameObject.transform.parent.GetComponent<AudioSource>().Play();
+
                 yield return new WaitForSeconds(timeForReloading);
 
                 float grenadeLauncherTotalAmmoSave = grenadeLauncherTotalAmmo;
@@ -442,6 +449,8 @@ public class WeaponManager : MonoBehaviour
             else if (weapon == 4 && desertEagleTotalAmmo > 0f && desertEagleAmmo < desertEagleCharger)
             {
                 desEagReloadingText.gameObject.SetActive(true);
+                thisGameObject.transform.parent.GetComponent<AudioSource>().Play();
+
                 yield return new WaitForSeconds(timeForReloading);
 
                 float desertEagleTotalAmmoSave = desertEagleTotalAmmo;

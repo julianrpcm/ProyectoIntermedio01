@@ -37,6 +37,8 @@ public class AmmoPack : MonoBehaviour
                     break;
             }
 
+            other.transform.GetChild(5).GetComponent<AudioSource>().Play();
+
             Destroy(gameObject);
         }
     }
